@@ -1,2 +1,4 @@
 data/images.zip filter=lfs diff=lfs merge=lfs -text
 data/traindev-track-2.jsonl filter=lfs diff=lfs merge=lfs -text
+data/images-testp1.zip filter=lfs diff=lfs merge=lfs -text
+data/testp1-track-2.jsonl filter=lfs diff=lfs merge=lfs -text

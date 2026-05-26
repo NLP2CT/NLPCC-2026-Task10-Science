@@ -1,0 +1,25 @@
+Classify each sentence in the claim paragraph according to the provided evidence bundle. The evidence may include figures or table screenshots attached as images. Use the captions and the attached images together when images are available.
+
+Allowed labels:
+- Supported: the sentence is fully supported by the evidence.
+- Unsupported Causal Mechanistic: the sentence adds an unsupported causal or mechanistic explanation.
+- Unsupported Entity: the sentence mentions an unsupported dataset, metric, model variant, baseline, or other scientific entity.
+- Scope Overgeneralization: the sentence generalizes beyond the scope supported by the evidence.
+- Contradiction: the sentence directly contradicts the evidence.
+
+Output requirements:
+- Return only one JSON object.
+- The JSON object must have exactly this shape: {{"labels": ["Supported", "..."]}}.
+- The labels array must contain exactly {num_sentences} labels, one per sentence, in the same order as the sentence list.
+- Do not include explanations, confidence scores, markdown, or extra keys.
+
+Claim paragraph:
+{claim_text}
+
+Sentence list:
+{sentences_json}
+
+Evidence metadata:
+{evidence_json}
+
+If image attachments are present after this text, they correspond to the evidence metadata by index.

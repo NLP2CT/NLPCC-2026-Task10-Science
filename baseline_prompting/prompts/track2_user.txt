@@ -1,0 +1,24 @@
+Decide whether the cited paper supports the atomic scientific claim.
+
+Allowed labels:
+- Supported: the cited paper directly supports the claim.
+- Overstate: the claim is related to the paper but exaggerates, strengthens, or generalizes beyond what the paper shows.
+- Topical Match: the paper is about the same topic, method, dataset, or problem, but does not provide evidence for the claim.
+- Irrelevant: the paper has no substantive support relationship to the claim.
+
+Evidence paragraph requirements:
+- Return at most 3 paragraph IDs, ranked by relevance.
+- Use only paragraph IDs present below.
+- Evidence paragraphs should justify the label decision, not merely mention overlapping keywords.
+- If no paragraph is useful evidence, return an empty list.
+
+Output requirements:
+- Return only one JSON object.
+- The JSON object must have exactly this shape: {{"label": "...", "evidence_para_ids": ["P12", "P13"]}}.
+- Do not include explanations, confidence scores, markdown, or extra keys.
+
+{note}Atomic claim:
+{claim_text}
+
+Cited paper paragraphs:
+{paper_text}

@@ -248,7 +248,7 @@
             <tr><td><code>sentence_label</code></td><td>list of objects</td><td>Per-sentence annotations. Each object contains a <code>sentence</code> (string) and <code>types</code> (list of labels; typically one, see note above).</td></tr>
           </table>
           <div class="note">At test time, the <code>types</code> field in <code>sentence_label</code> will be withheld. Participants will receive <code>claim_text</code>, <code>evidence_bundle</code>, and the sentence segmentation.</div>
-          <p>The image files referenced by <code>img_path</code> in the evidence bundle are provided separately in <code>images.zip</code>.</p>
+          <p>The image files referenced by <code>img_path</code> in the evidence bundle are provided separately in <code>images.zip</code> (train-dev) and <code>images-testp1.zip</code> (Phase 1 test). Inside the archives, files are stored at the archive root (e.g. <code>&lt;sha&gt;.jpg</code>). To match the relative <code>images/&lt;sha&gt;.jpg</code> paths used in the JSONL records, extract each archive into a directory named <code>images/</code> (for example <code>unzip data/images.zip -d data/images/</code>).</p>
 
           <h4>Track 1 Train-Dev Data Statistics</h4>
           <table>
@@ -334,11 +334,12 @@
             <li><strong>Joint@3</strong> — a prediction is counted as successful only if the system assigns the <strong>correct support label</strong> <em>and</em> retrieves <strong>at least one correct evidence paragraph</strong> in its top-3 evidence predictions.</li>
           </ol>
           <p class="formula">Track 2 ranking score = (Macro-F1 + Joint@3) / 2</p>
+          <p>For Track 2, when the gold evidence list of a sample is empty, Joint@3 is counted as successful only if the predicted label is correct <em>and</em> the predicted evidence list is also empty (the <code>match-empty</code> policy of the offline evaluator). This is the policy used for the official ranking on both the public leaderboard (Phase 1) and the hidden test set (Phase 2).</p>
 
           <h3>Two-Phase Evaluation</h3>
           <p>Evaluation is conducted in two phases to balance development flexibility with robustness against overfitting.</p>
           <p><strong>Phase 1 — Open Evaluation (May 26 – June 20, 2026):</strong><br>
-          Due to several last-minute registrations received on May 25, we will release the Phase 1 data together with the evaluation entry and offline evaluation scripts on May 26. We will notify all registered teams by email with further details. Participants must submit result files to the platform in the official format to obtain their Phase 1 scores. The public leaderboard will remain open until the final submission deadline.</p>
+          The Phase 1 test data, baseline prompting kit, and offline evaluation scripts have been released on May 26 (see the <a class="link" href="https://github.com/NLP2CT/NLPCC-2026-Task10-Science/tree/main/data" target="_blank" rel="noreferrer">data/</a>, <a class="link" href="https://github.com/NLP2CT/NLPCC-2026-Task10-Science/tree/main/baseline_prompting" target="_blank" rel="noreferrer">baseline_prompting/</a>, and <a class="link" href="https://github.com/NLP2CT/NLPCC-2026-Task10-Science/tree/main/offline_eval" target="_blank" rel="noreferrer">offline_eval/</a> directories in the repository). Participants must submit result files to the <a class="link" href="https://www.codabench.org/competitions/16666/" target="_blank" rel="noreferrer">Phase 1 Codabench platform</a> in the official format to obtain their Phase 1 scores. The public leaderboard will remain open until the final submission deadline.</p>
           <p><strong>Phase 2 — Hidden Evaluation (June 11 – June 20, 2026):</strong><br>
           On June 11, the organizers will release a previously unseen held-out test set (without labels). Participants must run their final models on this hidden test set and submit result files to the platform before the submission deadline (June 20).</p>
           <p><strong>Final Score:</strong><br>
@@ -352,7 +353,7 @@
           <h2>3. Submission Requirements</h2>
           <p>Each participating team must submit:</p>
           <ol>
-            <li><strong>Result files</strong> in the official submission format, submitted to the platform for both Phase 1 (open) and Phase 2 (hidden) test inputs.</li>
+            <li><strong>Result files</strong> in the official submission format, submitted to the platform for both Phase 1 (open) and Phase 2 (hidden) test inputs. The Phase 1 public platform is <a class="link" href="https://www.codabench.org/competitions/16666/" target="_blank" rel="noreferrer">Codabench competition 16666</a>.</li>
             <li><strong>A technical report</strong> that comprehensively describes:
               <ul>
                 <li>Training data sources and any data augmentation or preprocessing steps</li>
@@ -453,7 +454,7 @@
             <tr><td><code>sentence_label</code></td><td>list of objects</td><td>逐句标注。每个对象包含 <code>sentence</code>（字符串）和 <code>types</code>（标签列表；通常为一个，详见上述说明）。</td></tr>
           </table>
           <div class="note">测试阶段，<code>sentence_label</code> 中的 <code>types</code> 字段将被隐去。参赛者将收到 <code>claim_text</code>、<code>evidence_bundle</code> 以及句子切分结果。</div>
-          <p>证据材料中 <code>img_path</code> 所引用的图像文件单独提供在 <code>images.zip</code> 中。</p>
+          <p>证据材料中 <code>img_path</code> 所引用的图像文件单独提供在 <code>images.zip</code>（train-dev）和 <code>images-testp1.zip</code>（Phase 1 测试集）中。压缩包内的文件位于压缩包根目录（例如 <code>&lt;sha&gt;.jpg</code>），为与 JSONL 中 <code>images/&lt;sha&gt;.jpg</code> 这样的相对路径对齐，请将压缩包解压到名为 <code>images/</code> 的目录中（例如 <code>unzip data/images.zip -d data/images/</code>）。</p>
 
           <h4>Track 1 训练开发数据统计</h4>
           <table>
@@ -539,11 +540,12 @@
             <li><strong>Joint@3</strong> — 仅当系统预测了<strong>正确的支持关系标签</strong>，<em>且</em>在 top-3 证据段落预测中命中了<strong>至少一个正确的证据段落</strong>时，该预测才计为成功。</li>
           </ol>
           <p class="formula">Track 2 排名分数 = (Macro-F1 + Joint@3) / 2</p>
+          <p>对于 Track 2，当某条样本的 gold 证据段落列表为空时，仅当系统预测了<strong>正确的支持关系标签</strong>，<em>且</em>预测的证据段落列表也为空，Joint@3 才计为成功（即离线评测脚本的 <code>match-empty</code> 策略）。这是 Phase 1 公开排行榜与 Phase 2 隐藏测试集官方排名所使用的策略。</p>
 
           <h3>两阶段评测</h3>
           <p>评测分两个阶段进行，以兼顾开发灵活性与防止过拟合。</p>
           <p><strong>第一阶段 — 公开评测（2026 年 5 月 26 日 – 6 月 20 日）：</strong><br>
-          由于我们在 5 月 25 日仍收到若干临时报名，第一阶段数据、评测入口和离线评测脚本将于 5 月 26 日发布。我们将通过邮件通知各参赛队伍具体详情。参赛队伍须按官方格式将结果文件提交至平台以获得第一阶段分数。公开排行榜将持续开放至最终提交截止日。</p>
+          第一阶段测试数据、baseline prompting 套件与离线评测脚本已于 5 月 26 日发布，详见仓库中的 <a class="link" href="https://github.com/NLP2CT/NLPCC-2026-Task10-Science/tree/main/data" target="_blank" rel="noreferrer">data/</a>、<a class="link" href="https://github.com/NLP2CT/NLPCC-2026-Task10-Science/tree/main/baseline_prompting" target="_blank" rel="noreferrer">baseline_prompting/</a> 和 <a class="link" href="https://github.com/NLP2CT/NLPCC-2026-Task10-Science/tree/main/offline_eval" target="_blank" rel="noreferrer">offline_eval/</a> 目录。参赛队伍须按官方格式将结果文件提交至 <a class="link" href="https://www.codabench.org/competitions/16666/" target="_blank" rel="noreferrer">Codabench 第一阶段平台</a> 以获得第一阶段分数。公开排行榜将持续开放至最终提交截止日。</p>
           <p><strong>第二阶段 — 隐藏评测（2026 年 6 月 11 日 – 6 月 20 日）：</strong><br>
           6 月 11 日，组织方将发布此前未对参赛者公开的隐藏测试集（不含标签）。参赛队伍须在该隐藏测试集上运行最终模型，并在提交截止日（6 月 20 日）前将结果文件提交至平台。</p>
           <p><strong>最终得分：</strong><br>
@@ -557,7 +559,7 @@
           <h2>3. 提交要求</h2>
           <p>每支参赛队伍须提交：</p>
           <ol>
-            <li><strong>结果文件</strong>：按官方提交格式，将第一阶段（公开）和第二阶段（隐藏）的预测结果提交至平台。</li>
+            <li><strong>结果文件</strong>：按官方提交格式，将第一阶段（公开）和第二阶段（隐藏）的预测结果提交至平台。第一阶段公开平台为 <a class="link" href="https://www.codabench.org/competitions/16666/" target="_blank" rel="noreferrer">Codabench competition 16666</a>。</li>
             <li><strong>技术报告</strong>，须全面描述以下内容：
               <ul>
                 <li>训练数据来源及数据增强或预处理步骤</li>

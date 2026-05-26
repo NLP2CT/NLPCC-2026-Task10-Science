@@ -24,7 +24,7 @@
 
 ## 最新动态
 
-- **[2026/05/26]** 通知：由于我们在 5 月 25 日仍收到若干临时报名，第一阶段数据、评测入口和离线评测脚本将于 5 月 26 日发布。我们将尽快通过邮件通知各参赛队伍具体详情。
+- **[2026/05/26]** 第一阶段评测正式开启。第一阶段测试输入（[`data/`](data/)）、baseline prompting 套件（[`baseline_prompting/`](baseline_prompting/)）与离线评测脚本（[`offline_eval/`](offline_eval/)）已发布。请在 [Codabench](https://www.codabench.org/competitions/16666/) 提交第一阶段结果。
 - **[2026/04/15]** 发布任务指南及两个赛道的训练开发数据。
 - **[2026/03/20]** 共享任务公告发布，开放报名。
 
@@ -34,6 +34,7 @@
 |---|---|
 | 任务指南（中文 / EN） | [GUIDELINES_ZH.md](GUIDELINES_ZH.md) / [GUIDELINES.md](GUIDELINES.md) |
 | 训练开发数据 | [`data/`](data/) |
+| 第一阶段提交平台 | [Codabench competition 16666](https://www.codabench.org/competitions/16666/) |
 | 报名状态 | 已截止 |
 | 报名邮箱 | [nlp2ct.runzhe@gmail.com](mailto:nlp2ct.runzhe@gmail.com) |
 | 任务主页 | [nlp2ct.github.io/NLPCC-2026-Task10-Science](https://nlp2ct.github.io/NLPCC-2026-Task10-Science/) |
@@ -80,6 +81,19 @@
 | 2026 年 6 月 11 日 | 发布隐藏测试数据（不含标签）**（第二阶段）** |
 | 2026 年 6 月 20 日 | 结果提交截止日（第一阶段 + 第二阶段） |
 | 2026 年 6 月 30 日 | 公布评测结果；征集系统报告 |
+
+## 离线评测套件与朴素Prompting范例
+
+我们为第一阶段提供了一个轻量级 backbone 评测栈：[`offline_eval/`](offline_eval/) 中的官方离线评测脚本，以及 [`baseline_prompting/`](baseline_prompting/) 中的参考 single-turn prompting kit。下表给出 naive prompting 策略在已发布第一阶段设置上的参考结果。
+
+| 模型 | T1 Score | T1 Macro-F1 | T1 PEM | T2 Score | T2 Macro-F1 | T2 Joint@3 | Avg(T1,T2) |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Gemini 3.1 Pro | 10.35% | 19.17% | 1.54% | 38.97% | **46.02%** | 31.91% | 24.66% |
+| GPT-5.4 | 16.35% | **26.04%** | 6.66% | **40.51%** | 41.65% | **39.38%** | **28.43%** |
+| Qwen3.6-Plus | **18.90%** | 25.33% | **12.46%** | 30.35% | 38.08% | 22.63% | 24.62% |
+
+这些分数用于为已发布的 prompting kit 提供可复现的参考点，并非经过优化的排行榜 baseline。
+
 
 ## 主办单位
 

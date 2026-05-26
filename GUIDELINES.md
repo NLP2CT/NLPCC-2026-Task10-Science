@@ -73,7 +73,7 @@ Each record in the released JSONL file contains the following fields:
 
 > At test time, the `types` field in `sentence_label` will be withheld. Participants will receive `claim_text`, `evidence_bundle`, and the sentence segmentation.
 
-The image files referenced by `img_path` in the evidence bundle are provided separately in `images.zip`.
+The image files referenced by `img_path` in the evidence bundle are provided separately in `images.zip` (train-dev) and `images-testp1.zip` (Phase 1 test). Inside the archives, files are stored at the archive root (e.g. `<sha>.jpg`). To match the relative `images/<sha>.jpg` paths used in the JSONL records, extract each archive into a directory named `images/` (for example `unzip data/images.zip -d data/images/`).
 
 #### Track 1 Train-Dev Data Statistics
 
@@ -174,12 +174,18 @@ Each record in the released Train-Dev data contains the following fields:
 
 **Track 2 ranking score** = (Macro-F1 + Joint@3) / 2
 
+For Track 2, when the gold evidence list of a sample is empty, Joint@3 is
+counted as successful only if the predicted label is correct *and* the
+predicted evidence list is also empty (the `match-empty` policy of the
+offline evaluator). This is the policy used for the official ranking on both
+the public leaderboard (Phase 1) and the hidden test set (Phase 2).
+
 ### Two-Phase Evaluation
 
 Evaluation is conducted in two phases to balance development flexibility with robustness against overfitting.
 
 **Phase 1 — Open Evaluation (May 26 -- June 20, 2026):**
-Due to several last-minute registrations received on May 25, we will release the Phase 1 data together with the evaluation entry and offline evaluation scripts on May 26. We will notify all registered teams by email with further details. Participants must submit result files to the platform in the official format to obtain their Phase 1 scores. The public leaderboard will remain open until the final submission deadline.
+The Phase 1 test data, baseline prompting kit, and offline evaluation scripts have been released on May 26 (see the `data/`, `baseline_prompting/`, and `offline_eval/` directories in the repository). Participants must submit result files to the [Phase 1 Codabench platform](https://www.codabench.org/competitions/16666/) in the official format to obtain their Phase 1 scores. The public leaderboard will remain open until the final submission deadline.
 
 **Phase 2 — Hidden Evaluation (June 11 -- June 20, 2026):**
 On June 11, the organizers will release a previously unseen held-out test set (without labels). Participants must run their final models on this hidden test set and submit result files to the platform before the submission deadline (June 20).
@@ -201,7 +207,7 @@ After the competition concludes, all task data, including both training and test
 
 Each participating team must submit:
 
-1. **Result files** in the official submission format, submitted to the platform for both Phase 1 (open) and Phase 2 (hidden) test inputs.
+1. **Result files** in the official submission format, submitted to the platform for both Phase 1 (open) and Phase 2 (hidden) test inputs. The Phase 1 public platform is [Codabench competition 16666](https://www.codabench.org/competitions/16666/).
 
 2. **A technical report** that comprehensively describes:
    - Training data sources and any data augmentation or preprocessing steps

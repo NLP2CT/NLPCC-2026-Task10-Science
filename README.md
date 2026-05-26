@@ -24,7 +24,7 @@
 
 ## Latest News
 
-- **[2026/05/26]** Notice: Due to some last-minute registrations received on May 25, Phase 1 data, the evaluation entry, and the offline evaluation scripts will be released on May 26. We will notify all registered teams by email with further details ASAP.
+- **[2026/05/26]** Phase 1 is now open. Phase 1 test inputs ([`data/`](data/)), a baseline prompting kit ([`baseline_prompting/`](baseline_prompting/)), and the offline evaluation scripts ([`offline_eval/`](offline_eval/)) are released. Submit Phase 1 results on [Codabench](https://www.codabench.org/competitions/16666/).
 - **[2026/04/15]** Task guidelines and train-dev data for both tracks released.
 - **[2026/03/20]** Shared task announced. Registration is now open.
 
@@ -34,6 +34,7 @@
 |---|---|
 | Task Guidelines (EN / 中文) | [GUIDELINES.md](GUIDELINES.md) / [GUIDELINES_ZH.md](GUIDELINES_ZH.md) |
 | Train-Dev Data | [`data/`](data/) |
+| Phase 1 Platform | [Codabench competition 16666](https://www.codabench.org/competitions/16666/) |
 | Registration Status | Closed |
 | Registration Email | [nlp2ct.runzhe@gmail.com](mailto:nlp2ct.runzhe@gmail.com) |
 | Task Website | [nlp2ct.github.io/NLPCC-2026-Task10-Science](https://nlp2ct.github.io/NLPCC-2026-Task10-Science/) |
@@ -82,6 +83,18 @@ See the [Task Guidelines](GUIDELINES.md) for full definitions, data format, and 
 | June 11, 2026 | Hidden test data release, no labels **(Phase 2)** |
 | June 20, 2026 | Result submission deadline (Phase 1 + Phase 2) |
 | June 30, 2026 | Evaluation results released; call for system reports |
+
+## Evaluation Kit & Naive Baseline Kit
+
+We provide a lightweight backbone evaluation stack for Phase 1: the official offline evaluator in [`offline_eval/`](offline_eval/) and a reference single-turn prompting kit in [`baseline_prompting/`](baseline_prompting/). The table below reports naive prompting reference results on the released Phase 1 setup.
+
+| Model | T1 Score | T1 Macro-F1 | T1 PEM | T2 Score | T2 Macro-F1 | T2 Joint@3 | Avg(T1,T2) |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Gemini 3.1 Pro | 10.35% | 19.17% | 1.54% | 38.97% | **46.02%** | 31.91% | 24.66% |
+| GPT-5.4 | 16.35% | **26.04%** | 6.66% | **40.51%** | 41.65% | **39.38%** | **28.43%** |
+| Qwen3.6-Plus | **18.90%** | 25.33% | **12.46%** | 30.35% | 38.08% | 22.63% | 24.62% |
+
+These numbers are intended as reproducible reference points for the released prompting kit, not as optimized leaderboard baselines.
 
 ## Organizer
 

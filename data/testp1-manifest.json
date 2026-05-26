@@ -1,0 +1,25 @@
+{
+  "split": "NLPCC 2026 Shared Task 10 Phase 1 test release",
+  "counts": {
+    "track1_records": 586,
+    "track1_sentences": 5096,
+    "track2_records": 937
+  },
+  "artifacts": [
+    {
+      "path": "data/testp1-track-1.jsonl",
+      "bytes": 2491503,
+      "sha256": "13450d1bb339a21b43550874aed9780b00bd7fdee4b0d15336942001d9cd7488"
+    },
+    {
+      "path": "data/testp1-track-2.jsonl",
+      "bytes": 67667388,
+      "sha256": "6edb01897ba01fb2d45c73d795432a585c636c4c2ca519c019d5b4bfac307a87"
+    },
+    {
+      "path": "data/images-testp1.zip",
+      "bytes": 76530305,
+      "sha256": "744130f788f76e3931a601615f886f9054aaad399932fa2a0bceff194ffdc3e6"
+    }
+  ]
+}
