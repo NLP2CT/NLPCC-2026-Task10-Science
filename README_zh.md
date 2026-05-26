@@ -3,7 +3,7 @@
 <h1>NLPCC 2026 共享任务 10：AI辅助科学报告的可靠性</h1>
 <p><em>本任务设置两个互补赛道，分别关注实验结果的陈述级忠实性和外部文献的引文级忠实性。</em></p>
 
-[![任务指南](https://img.shields.io/badge/%E4%BB%BB%E5%8A%A1%E6%8C%87%E5%8D%97-%E5%B7%B2%E5%8F%91%E5%B8%83-blue?style=for-the-badge)](GUIDELINES_ZH.md) [![数据](https://img.shields.io/badge/%E8%AE%AD%E7%BB%83%E5%BC%80%E5%8F%91%E6%95%B0%E6%8D%AE-%E5%B7%B2%E5%8F%91%E5%B8%83-green?style=for-the-badge)](data/) [![报名](https://img.shields.io/badge/%E6%8A%A5%E5%90%8D-%E5%B7%B2%E6%88%AA%E6%AD%A2-lightgrey?style=for-the-badge)](mailto:nlp2ct.runzhe@gmail.com) [![主页](https://img.shields.io/badge/%E4%B8%BB%E9%A1%B5-Live-purple?style=for-the-badge)](https://nlp2ct.github.io/NLPCC-2026-Task10-Science/)
+[![任务指南](https://img.shields.io/badge/%E4%BB%BB%E5%8A%A1%E6%8C%87%E5%8D%97-%E5%B7%B2%E5%8F%91%E5%B8%83-blue?style=for-the-badge)](GUIDELINES_ZH.md) [![第一阶段提交](https://img.shields.io/badge/%E7%AC%AC%E4%B8%80%E9%98%B6%E6%AE%B5%E6%8F%90%E4%BA%A4%E5%B9%B3%E5%8F%B0-Codabench-green?style=for-the-badge)](https://www.codabench.org/competitions/16666/) [![报名](https://img.shields.io/badge/%E6%8A%A5%E5%90%8D-%E5%B7%B2%E6%88%AA%E6%AD%A2-lightgrey?style=for-the-badge)](mailto:nlp2ct.runzhe@gmail.com) [![主页](https://img.shields.io/badge/%E4%B8%BB%E9%A1%B5-Live-purple?style=for-the-badge)](https://nlp2ct.github.io/NLPCC-2026-Task10-Science/)
 
 </div>
 
@@ -33,7 +33,7 @@
 | | 链接 |
 |---|---|
 | 任务指南（中文 / EN） | [GUIDELINES_ZH.md](GUIDELINES_ZH.md) / [GUIDELINES.md](GUIDELINES.md) |
-| 训练开发数据 | [`data/`](data/) |
+| 已发布数据（训练开发 + 第一阶段测试） | [`data/`](data/) |
 | 第一阶段提交平台 | [Codabench competition 16666](https://www.codabench.org/competitions/16666/) |
 | 报名状态 | 已截止 |
 | 报名邮箱 | [nlp2ct.runzhe@gmail.com](mailto:nlp2ct.runzhe@gmail.com) |

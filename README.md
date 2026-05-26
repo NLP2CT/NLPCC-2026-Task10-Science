@@ -3,7 +3,7 @@
 <h1>NLPCC 2026 Shared Task 10: Reliability of AI-Assisted Scientific Reporting</h1>
 <p><em>Two complementary tracks: claim-level faithfulness to experimental results and citation-level faithfulness to external evidence.</em></p>
 
-[![Guidelines](https://img.shields.io/badge/Guidelines-Available-blue?style=for-the-badge)](GUIDELINES.md) [![Data](https://img.shields.io/badge/Train--Dev_Data-Released-green?style=for-the-badge)](data/) [![Registration](https://img.shields.io/badge/Registration-Closed-lightgrey?style=for-the-badge)](mailto:nlp2ct.runzhe@gmail.com) [![Website](https://img.shields.io/badge/Website-Live-purple?style=for-the-badge)](https://nlp2ct.github.io/NLPCC-2026-Task10-Science/)
+[![Guidelines](https://img.shields.io/badge/Guidelines-Available-blue?style=for-the-badge)](GUIDELINES.md) [![Phase 1 Platform](https://img.shields.io/badge/Phase_1_Platform-Codabench-green?style=for-the-badge)](https://www.codabench.org/competitions/16666/) [![Registration](https://img.shields.io/badge/Registration-Closed-lightgrey?style=for-the-badge)](mailto:nlp2ct.runzhe@gmail.com) [![Website](https://img.shields.io/badge/Website-Live-purple?style=for-the-badge)](https://nlp2ct.github.io/NLPCC-2026-Task10-Science/)
 
 </div>
 
@@ -33,7 +33,7 @@
 | | Link |
 |---|---|
 | Task Guidelines (EN / 中文) | [GUIDELINES.md](GUIDELINES.md) / [GUIDELINES_ZH.md](GUIDELINES_ZH.md) |
-| Train-Dev Data | [`data/`](data/) |
+| Released Data (Train-Dev + Phase 1 Test) | [`data/`](data/) |
 | Phase 1 Platform | [Codabench competition 16666](https://www.codabench.org/competitions/16666/) |
 | Registration Status | Closed |
 | Registration Email | [nlp2ct.runzhe@gmail.com](mailto:nlp2ct.runzhe@gmail.com) |
