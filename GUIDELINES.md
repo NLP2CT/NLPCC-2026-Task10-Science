@@ -179,7 +179,7 @@ Each record in the released Train-Dev data contains the following fields:
 Evaluation is conducted in two phases to balance development flexibility with robustness against overfitting.
 
 **Phase 1 — Open Evaluation (May 26 -- June 20, 2026):**
-Due to several last-minute registrations received on May 25, we will release the Phase 1 data together with the evaluation entry and offline evaluation scripts on May 26. Participants must submit result files to the platform in the official format to obtain their Phase 1 scores. The public leaderboard will remain open until the final submission deadline.
+Due to several last-minute registrations received on May 25, we will release the Phase 1 data together with the evaluation entry and offline evaluation scripts on May 26. We will notify all registered teams by email with further details. Participants must submit result files to the platform in the official format to obtain their Phase 1 scores. The public leaderboard will remain open until the final submission deadline.
 
 **Phase 2 — Hidden Evaluation (June 11 -- June 20, 2026):**
 On June 11, the organizers will release a previously unseen held-out test set (without labels). Participants must run their final models on this hidden test set and submit result files to the platform before the submission deadline (June 20).

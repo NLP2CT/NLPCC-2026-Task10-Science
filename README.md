@@ -24,7 +24,7 @@
 
 ## Latest News
 
-- **[2026/05/26]** Notice: Due to some last-minute registrations received on May 25, Phase 1 data, the evaluation entry, and the offline evaluation scripts will be released on May 26.
+- **[2026/05/26]** Notice: Due to some last-minute registrations received on May 25, Phase 1 data, the evaluation entry, and the offline evaluation scripts will be released on May 26. We will notify all registered teams by email with further details ASAP.
 - **[2026/04/15]** Task guidelines and train-dev data for both tracks released.
 - **[2026/03/20]** Shared task announced. Registration is now open.
 
