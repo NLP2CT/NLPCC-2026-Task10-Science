@@ -178,8 +178,8 @@ Each record in the released Train-Dev data contains the following fields:
 
 Evaluation is conducted in two phases to balance development flexibility with robustness against overfitting.
 
-**Phase 1 — Open Evaluation (May 25 -- June 20, 2026):**
-Before the registration deadline (May 25), we will release the open test data together with a public submission link (tentatively on Kaggle) and an offline evaluation kit. Participants must submit result files to the platform in the official format to obtain their Phase 1 scores. The public leaderboard will remain open until the final submission deadline.
+**Phase 1 — Open Evaluation (May 26 -- June 20, 2026):**
+Due to several last-minute registrations received on May 25, we will release the Phase 1 data together with the evaluation entry and offline evaluation scripts on May 26. Participants must submit result files to the platform in the official format to obtain their Phase 1 scores. The public leaderboard will remain open until the final submission deadline.
 
 **Phase 2 — Hidden Evaluation (June 11 -- June 20, 2026):**
 On June 11, the organizers will release a previously unseen held-out test set (without labels). Participants must run their final models on this hidden test set and submit result files to the platform before the submission deadline (June 20).
@@ -221,7 +221,8 @@ Each participating team must submit:
 | March 20, 2026 | Shared task announcement and call for participation |
 | March 20, 2026 | Registration opens |
 | April 15, 2026 | Release of detailed task guidelines and training data |
-| May 25, 2026 | Registration deadline; open test data + public leaderboard released **(Phase 1 begins)** |
+| May 25, 2026 | Registration deadline |
+| May 26, 2026 | Phase 1 data, evaluation entry, and offline evaluation scripts released |
 | June 11, 2026 | Hidden (held-out) test data release, no labels **(Phase 2 begins)** |
 | June 20, 2026 | Deadline for participants to submit all results (Phase 1 + Phase 2) |
 | June 30, 2026 | Evaluation results released; call for system reports |

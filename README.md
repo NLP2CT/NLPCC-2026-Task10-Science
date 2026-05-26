@@ -3,7 +3,7 @@
 <h1>NLPCC 2026 Shared Task 10: Reliability of AI-Assisted Scientific Reporting</h1>
 <p><em>Two complementary tracks: claim-level faithfulness to experimental results and citation-level faithfulness to external evidence.</em></p>
 
-[![Guidelines](https://img.shields.io/badge/Guidelines-Available-blue?style=for-the-badge)](GUIDELINES.md) [![Data](https://img.shields.io/badge/Train--Dev_Data-Released-green?style=for-the-badge)](data/) [![Registration](https://img.shields.io/badge/Registration-Open-orange?style=for-the-badge)](https://ocn0wnz7cc7b.feishu.cn/share/base/form/shrcnLJgG87xZ808RqZxypMTq5b) [![Website](https://img.shields.io/badge/Website-Live-purple?style=for-the-badge)](https://nlp2ct.github.io/NLPCC-2026-Task10-Science/)
+[![Guidelines](https://img.shields.io/badge/Guidelines-Available-blue?style=for-the-badge)](GUIDELINES.md) [![Data](https://img.shields.io/badge/Train--Dev_Data-Released-green?style=for-the-badge)](data/) [![Registration](https://img.shields.io/badge/Registration-Closed-lightgrey?style=for-the-badge)](mailto:nlp2ct.runzhe@gmail.com) [![Website](https://img.shields.io/badge/Website-Live-purple?style=for-the-badge)](https://nlp2ct.github.io/NLPCC-2026-Task10-Science/)
 
 </div>
 
@@ -24,6 +24,7 @@
 
 ## Latest News
 
+- **[2026/05/26]** Notice: Due to some last-minute registrations received on May 25, Phase 1 data, the evaluation entry, and the offline evaluation scripts will be released on May 26.
 - **[2026/04/15]** Task guidelines and train-dev data for both tracks released.
 - **[2026/03/20]** Shared task announced. Registration is now open.
 
@@ -33,7 +34,7 @@
 |---|---|
 | Task Guidelines (EN / 中文) | [GUIDELINES.md](GUIDELINES.md) / [GUIDELINES_ZH.md](GUIDELINES_ZH.md) |
 | Train-Dev Data | [`data/`](data/) |
-| Registration Form | [Link](https://ocn0wnz7cc7b.feishu.cn/share/base/form/shrcnLJgG87xZ808RqZxypMTq5b) |
+| Registration Status | Closed |
 | Registration Email | [nlp2ct.runzhe@gmail.com](mailto:nlp2ct.runzhe@gmail.com) |
 | Task Website | [nlp2ct.github.io/NLPCC-2026-Task10-Science](https://nlp2ct.github.io/NLPCC-2026-Task10-Science/) |
 
@@ -76,7 +77,8 @@ See the [Task Guidelines](GUIDELINES.md) for full definitions, data format, and 
 |---|---|
 | March 20, 2026 | Shared task announcement; registration opens |
 | April 15, 2026 | Release of task guidelines and train-dev data |
-| May 25, 2026 | Registration deadline; open test data + public leaderboard **(Phase 1)** |
+| May 25, 2026 | Registration deadline |
+| May 26, 2026 | Phase 1 data, evaluation entry, and offline evaluation scripts released |
 | June 11, 2026 | Hidden test data release, no labels **(Phase 2)** |
 | June 20, 2026 | Result submission deadline (Phase 1 + Phase 2) |
 | June 30, 2026 | Evaluation results released; call for system reports |

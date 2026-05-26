@@ -3,7 +3,7 @@
 <h1>NLPCC 2026 共享任务 10：AI辅助科学报告的可靠性</h1>
 <p><em>本任务设置两个互补赛道，分别关注实验结果的陈述级忠实性和外部文献的引文级忠实性。</em></p>
 
-[![任务指南](https://img.shields.io/badge/%E4%BB%BB%E5%8A%A1%E6%8C%87%E5%8D%97-%E5%B7%B2%E5%8F%91%E5%B8%83-blue?style=for-the-badge)](GUIDELINES_ZH.md) [![数据](https://img.shields.io/badge/%E8%AE%AD%E7%BB%83%E5%BC%80%E5%8F%91%E6%95%B0%E6%8D%AE-%E5%B7%B2%E5%8F%91%E5%B8%83-green?style=for-the-badge)](data/) [![报名](https://img.shields.io/badge/%E6%8A%A5%E5%90%8D-%E5%BC%80%E6%94%BE%E4%B8%AD-orange?style=for-the-badge)](https://ocn0wnz7cc7b.feishu.cn/share/base/form/shrcnLJgG87xZ808RqZxypMTq5b) [![主页](https://img.shields.io/badge/%E4%B8%BB%E9%A1%B5-Live-purple?style=for-the-badge)](https://nlp2ct.github.io/NLPCC-2026-Task10-Science/)
+[![任务指南](https://img.shields.io/badge/%E4%BB%BB%E5%8A%A1%E6%8C%87%E5%8D%97-%E5%B7%B2%E5%8F%91%E5%B8%83-blue?style=for-the-badge)](GUIDELINES_ZH.md) [![数据](https://img.shields.io/badge/%E8%AE%AD%E7%BB%83%E5%BC%80%E5%8F%91%E6%95%B0%E6%8D%AE-%E5%B7%B2%E5%8F%91%E5%B8%83-green?style=for-the-badge)](data/) [![报名](https://img.shields.io/badge/%E6%8A%A5%E5%90%8D-%E5%B7%B2%E6%88%AA%E6%AD%A2-lightgrey?style=for-the-badge)](mailto:nlp2ct.runzhe@gmail.com) [![主页](https://img.shields.io/badge/%E4%B8%BB%E9%A1%B5-Live-purple?style=for-the-badge)](https://nlp2ct.github.io/NLPCC-2026-Task10-Science/)
 
 </div>
 
@@ -24,6 +24,7 @@
 
 ## 最新动态
 
+- **[2026/05/26]** 通知：由于我们在 5 月 25 日仍收到若干临时报名，第一阶段数据、评测入口和离线评测脚本将于 5 月 26 日发布。
 - **[2026/04/15]** 发布任务指南及两个赛道的训练开发数据。
 - **[2026/03/20]** 共享任务公告发布，开放报名。
 
@@ -33,7 +34,7 @@
 |---|---|
 | 任务指南（中文 / EN） | [GUIDELINES_ZH.md](GUIDELINES_ZH.md) / [GUIDELINES.md](GUIDELINES.md) |
 | 训练开发数据 | [`data/`](data/) |
-| 报名表 | [链接](https://ocn0wnz7cc7b.feishu.cn/share/base/form/shrcnLJgG87xZ808RqZxypMTq5b) |
+| 报名状态 | 已截止 |
 | 报名邮箱 | [nlp2ct.runzhe@gmail.com](mailto:nlp2ct.runzhe@gmail.com) |
 | 任务主页 | [nlp2ct.github.io/NLPCC-2026-Task10-Science](https://nlp2ct.github.io/NLPCC-2026-Task10-Science/) |
 
@@ -74,7 +75,8 @@
 |---|---|
 | 2026 年 3 月 20 日 | 共享任务公告发布；开放报名 |
 | 2026 年 4 月 15 日 | 发布任务指南与训练开发数据 |
-| 2026 年 5 月 25 日 | 报名截止；发布公开测试数据与排行榜**（第一阶段）** |
+| 2026 年 5 月 25 日 | 报名截止 |
+| 2026 年 5 月 26 日 | 发布第一阶段数据、评测入口和离线评测脚本 |
 | 2026 年 6 月 11 日 | 发布隐藏测试数据（不含标签）**（第二阶段）** |
 | 2026 年 6 月 20 日 | 结果提交截止日（第一阶段 + 第二阶段） |
 | 2026 年 6 月 30 日 | 公布评测结果；征集系统报告 |
