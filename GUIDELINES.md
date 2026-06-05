@@ -205,6 +205,8 @@ After the competition concludes, all task data, including both training and test
 
 ## 3. Submission Requirements
 
+**No online/network tools:** The use of online or network-connected tools is prohibited. During inference on test inputs (Phase 1 and Phase 2), systems must not invoke tools that access the internet to retrieve external information at prediction time. This includes, but is not limited to, web search, web browsing, live retrieval APIs, and agent tools that fetch content from the internet.
+
 Each participating team must submit:
 
 1. **Result files** in the official submission format, submitted to the platform for both Phase 1 (open) and Phase 2 (hidden) test inputs. The Phase 1 public platform is [Codabench competition 16666](https://www.codabench.org/competitions/16666/).
@@ -260,3 +262,6 @@ Each participating team must submit:
 
 **Q: Can we use proprietary LLMs (e.g., GPT-5, Claude) via API in our systems?**
 - A: Yes. However, participants must clearly report the model name, version (w/ request date), and API costs in the technical report.
+
+**Q: Can we use online/network tools (e.g., web search or live retrieval) during prediction?**
+- A: No. Online or network-connected tools that fetch external information from the internet are prohibited during inference on test inputs. 

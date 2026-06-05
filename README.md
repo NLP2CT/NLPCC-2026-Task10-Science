@@ -41,6 +41,8 @@
 
 > **Data usage notice:** All released task data is provided exclusively for NLPCC 2026 Shared Task 10 during the competition period. Credits and attribution belong to the organizers, and the data may not be redistributed, mirrored, republished, relabeled, or released under any other name before the competition ends. After the competition, all training and test data will be redistributed under an open license for scientific research use.
 
+> **Note:** The use of online/network-connected tools is prohibited during inference on test inputs. Systems must not invoke tools that access the internet to retrieve external information at prediction time.
+
 ## Introduction
 
 As generative AI and agentic AI become increasingly integrated into scientific workflows, they are now widely used to assist with scientific writing, including summarizing experimental results, drafting conclusions, and generating citation-supported statements.
