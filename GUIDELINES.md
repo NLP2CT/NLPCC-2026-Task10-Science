@@ -184,14 +184,14 @@ the public leaderboard (Phase 1) and the hidden test set (Phase 2).
 
 Evaluation is conducted in two phases to balance development flexibility with robustness against overfitting.
 
-**Phase 1 — Open Evaluation (May 26 -- June 20, 2026):**
-The Phase 1 test data, baseline prompting kit, and offline evaluation scripts have been released on May 26 (see the `data/`, `baseline_prompting/`, and `offline_eval/` directories in the repository). Participants must submit result files to the [Phase 1 Codabench platform](https://www.codabench.org/competitions/16666/) in the official format to obtain their Phase 1 scores. The public leaderboard will remain open until the final submission deadline.
+**Phase 1 — Open Evaluation (May 26 -- June 16, 2026):**
+The Phase 1 test data, baseline prompting kit, and offline evaluation scripts have been released on May 26 (see the `data/`, `baseline_prompting/`, and `offline_eval/` directories in the repository). Participants must submit result files to the [Codabench platform](https://www.codabench.org/competitions/16666/) in the official format to obtain their Phase 1 scores. Phase 1 public submissions on the platform close on June 16 (UTC+8).
 
 **Phase 2 — Hidden Evaluation (June 11 -- June 20, 2026):**
-On June 11, the organizers will release a previously unseen held-out test set (without labels). Participants must run their final models on this hidden test set and submit result files to the platform before the submission deadline (June 20).
+On June 11, the organizers released a previously unseen held-out test set (without labels). Due to platform limitations, Codabench cannot support parallel phase submissions. Participants must run their final models on this hidden test set and submit Phase 2 prediction files through Codabench during June 17--20 (UTC+8). During Phase 2, Codabench is used only to collect submission files and will not publicly display the Phase 2 leaderboard.
 
 **Final Score:**
-The final ranking score is the average of the Phase 1 (open) and Phase 2 (hidden) scores. This two-phase design discourages overfitting to the open test data and better reflects system generalizability.
+During the Phase 2 testing period, Phase 1 submissions will be handled by automatically selecting the best score from existing submission records. For the final ranking, the organizers will review all Phase 1 and Phase 2 submissions, privately confirm with each participating team which files will be used for final evaluation, and retain the best score for each track in each phase. Final results are scheduled to be released on June 30 (UTC+8).
 
 ### Data Release and Usage Policy
 
@@ -209,9 +209,11 @@ After the competition concludes, all task data, including both training and test
 
 Each participating team must submit:
 
-1. **Result files** in the official submission format, submitted to the platform for both Phase 1 (open) and Phase 2 (hidden) test inputs. The Phase 1 public platform is [Codabench competition 16666](https://www.codabench.org/competitions/16666/).
+1. **Result files** in the official submission format, submitted to [Codabench competition 16666](https://www.codabench.org/competitions/16666/) for both Phase 1 (open) and Phase 2 (hidden) test inputs. If a team participates in both tracks, the Track 1 and Track 2 results should be submitted together in a combined submission.
 
-2. **A technical report** that comprehensively describes:
+2. **Final materials confirmation** through the [Feishu confirmation form](https://ocn0wnz7cc7b.feishu.cn/share/base/form/shrcnY417S5AdxoYnZTx9g60590), including Phase 1 confirmation metadata, Phase 2 confirmation metadata, and a concise system description PDF. This concise system description is not the conference submission version.
+
+  **A technical report** that comprehensively describes:
    - Training data sources and any data augmentation or preprocessing steps
    - Model architecture and design choices
    - Prompting strategy or retrieval setup (if applicable)
@@ -219,6 +221,8 @@ Each participating team must submit:
    - Evaluation methodology and any ablation results
 
    The technical report must provide sufficient detail for full reproducibility. The organizers reserve the right to request **verification materials** — including source code, model weights, and training scripts — for any submission where reproducibility concerns arise.
+
+The official NLPCC call for shared-task technical reports is expected to be released later than the main conference paper call.
 
 ---
 
@@ -232,8 +236,9 @@ Each participating team must submit:
 | May 25, 2026 | Registration deadline |
 | May 26, 2026 | Phase 1 data, evaluation entry, and offline evaluation scripts released |
 | June 11, 2026 | Hidden (held-out) test data release, no labels **(Phase 2 begins)** |
-| June 20, 2026 | Deadline for participants to submit all results (Phase 1 + Phase 2) |
-| June 30, 2026 | Evaluation results released; call for system reports |
+| June 16, 2026 | Phase 1 public submissions close on Codabench (UTC+8) |
+| June 20, 2026 | Phase 2 submissions close on Codabench (UTC+8) |
+| June 30, 2026 | Final results released |
 
 ---
 
@@ -264,4 +269,4 @@ Each participating team must submit:
 - A: Yes. However, participants must clearly report the model name, version (w/ request date), and API costs in the technical report.
 
 **Q: Can we use online/network tools (e.g., web search or live retrieval) during prediction?**
-- A: No. Online or network-connected tools that fetch external information from the internet are prohibited during inference on test inputs. 
+- A: No. Online or network-connected tools that fetch external information from the internet are prohibited during inference on test inputs.

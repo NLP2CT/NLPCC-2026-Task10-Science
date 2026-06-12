@@ -24,7 +24,7 @@
 
 ## Latest News
 
-- **[2026/06/11]** Phase 2 hidden test inputs for both tracks are released in [`data/`](data/) without labels. 
+- **[2026/06/11]** Phase 2 hidden test inputs for both tracks are released in [`data/`](data/) without labels. Phase 1 public submissions close on June 16 (UTC+8), and Phase 2 submissions are collected on Codabench during June 17--20 (UTC+8).
 - **[2026/05/26]** Phase 1 is now open. Phase 1 test inputs ([`data/`](data/)), a baseline prompting kit ([`baseline_prompting/`](baseline_prompting/)), and the offline evaluation scripts ([`offline_eval/`](offline_eval/)) are released. Submit Phase 1 results on [Codabench](https://www.codabench.org/competitions/16666/).
 - **[2026/04/15]** Task guidelines and train-dev data for both tracks released.
 - **[2026/03/20]** Shared task announced. Registration is now open.
@@ -36,6 +36,7 @@
 | Task Guidelines (EN / 中文) | [GUIDELINES.md](GUIDELINES.md) / [GUIDELINES_ZH.md](GUIDELINES_ZH.md) |
 | Released Data (Train-Dev + Phase 1 Test + Phase 2 Hidden Test) | [`data/`](data/) |
 | Submission Platform | [Codabench competition 16666](https://www.codabench.org/competitions/16666/) |
+| Final Materials Confirmation | [Feishu form](https://ocn0wnz7cc7b.feishu.cn/share/base/form/shrcnY417S5AdxoYnZTx9g60590) |
 | Registration Status | Closed |
 | Registration Email | [nlp2ct.runzhe@gmail.com](mailto:nlp2ct.runzhe@gmail.com) |
 | Task Website | [nlp2ct.github.io/NLPCC-2026-Task10-Science](https://nlp2ct.github.io/NLPCC-2026-Task10-Science/) |
@@ -84,8 +85,19 @@ See the [Task Guidelines](GUIDELINES.md) for full definitions, data format, and 
 | May 25, 2026 | Registration deadline |
 | May 26, 2026 | Phase 1 data, evaluation entry, and offline evaluation scripts released |
 | June 11, 2026 | Hidden test data release, no labels **(Phase 2)** |
-| June 20, 2026 | Result submission deadline (Phase 1 + Phase 2) |
-| June 30, 2026 | Evaluation results released; call for system reports |
+| June 16, 2026 | Phase 1 **public submissions** close on Codabench (UTC+8) |
+| June 20, 2026 | Phase 2 submissions close on Codabench (UTC+8) |
+| June 30, 2026 | Final results released |
+
+## Final Materials
+
+All final materials must be summarized and confirmed through the [Feishu confirmation form](https://ocn0wnz7cc7b.feishu.cn/share/base/form/shrcnY417S5AdxoYnZTx9g60590). This includes:
+
+- Phase 1 confirmation metadata
+- Phase 2 confirmation metadata
+- A concise system description PDF (see the task guidelines for details; this is not the conference submission version)
+
+Tip: in the aggregated leaderboard, click `Average Score`, `Track 1 Score`, `Track 2 Score`, or other score fields to sort results and quickly view overall or track-level rankings.
 
 ## Evaluation Kit & Naive Baseline Kit
 

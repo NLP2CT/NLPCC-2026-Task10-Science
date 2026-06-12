@@ -338,12 +338,12 @@
 
           <h3>Two-Phase Evaluation</h3>
           <p>Evaluation is conducted in two phases to balance development flexibility with robustness against overfitting.</p>
-          <p><strong>Phase 1 — Open Evaluation (May 26 – June 20, 2026):</strong><br>
-          The Phase 1 test data, baseline prompting kit, and offline evaluation scripts have been released on May 26 (see the <a class="link" href="https://github.com/NLP2CT/NLPCC-2026-Task10-Science/tree/main/data" target="_blank" rel="noreferrer">data/</a>, <a class="link" href="https://github.com/NLP2CT/NLPCC-2026-Task10-Science/tree/main/baseline_prompting" target="_blank" rel="noreferrer">baseline_prompting/</a>, and <a class="link" href="https://github.com/NLP2CT/NLPCC-2026-Task10-Science/tree/main/offline_eval" target="_blank" rel="noreferrer">offline_eval/</a> directories in the repository). Participants must submit result files to the <a class="link" href="https://www.codabench.org/competitions/16666/" target="_blank" rel="noreferrer">Phase 1 Codabench platform</a> in the official format to obtain their Phase 1 scores. The public leaderboard will remain open until the final submission deadline.</p>
+          <p><strong>Phase 1 — Open Evaluation (May 26 – June 16, 2026):</strong><br>
+          The Phase 1 test data, baseline prompting kit, and offline evaluation scripts have been released on May 26 (see the <a class="link" href="https://github.com/NLP2CT/NLPCC-2026-Task10-Science/tree/main/data" target="_blank" rel="noreferrer">data/</a>, <a class="link" href="https://github.com/NLP2CT/NLPCC-2026-Task10-Science/tree/main/baseline_prompting" target="_blank" rel="noreferrer">baseline_prompting/</a>, and <a class="link" href="https://github.com/NLP2CT/NLPCC-2026-Task10-Science/tree/main/offline_eval" target="_blank" rel="noreferrer">offline_eval/</a> directories in the repository). Participants must submit result files to the <a class="link" href="https://www.codabench.org/competitions/16666/" target="_blank" rel="noreferrer">Codabench platform</a> in the official format to obtain their Phase 1 scores. Phase 1 public submissions on the platform close on June 16 (UTC+8).</p>
           <p><strong>Phase 2 — Hidden Evaluation (June 11 – June 20, 2026):</strong><br>
-          On June 11, the organizers will release a previously unseen held-out test set (without labels). Participants must run their final models on this hidden test set and submit result files to the platform before the submission deadline (June 20).</p>
+          On June 11, the organizers released a previously unseen held-out test set (without labels). Due to platform limitations, Codabench cannot support parallel phase submissions. Participants must run their final models on this hidden test set and submit Phase 2 prediction files through Codabench during June 17–20 (UTC+8). During Phase 2, Codabench is used only to collect submission files and will not publicly display the Phase 2 leaderboard.</p>
           <p><strong>Final Score:</strong><br>
-          The final ranking score is the average of the Phase 1 (open) and Phase 2 (hidden) scores. This two-phase design discourages overfitting to the open test data and better reflects system generalizability.</p>
+          During the Phase 2 testing period, Phase 1 submissions will be handled by automatically selecting the best score from existing submission records. For the final ranking, the organizers will review all Phase 1 and Phase 2 submissions, privately confirm with each participating team which files will be used for final evaluation, and retain the best score for each track in each phase. Final results are scheduled to be released on June 30 (UTC+8).</p>
 
           <h3>Data Release and Usage Policy</h3>
           <p>All data released for this shared task, including train/dev data, open test data, and hidden test data, is provided exclusively for participation in NLPCC 2026 Shared Task 10 during the competition period.</p>
@@ -354,7 +354,8 @@
           <p><strong>No online/network tools:</strong> The use of online or network-connected tools is prohibited. During inference on test inputs (Phase 1 and Phase 2), systems must not invoke tools that access the internet to retrieve external information at prediction time. This includes, but is not limited to, web search, web browsing, live retrieval APIs, and agent tools that fetch content from the internet.</p>
           <p>Each participating team must submit:</p>
           <ol>
-            <li><strong>Result files</strong> in the official submission format, submitted to the platform for both Phase 1 (open) and Phase 2 (hidden) test inputs. The Phase 1 public platform is <a class="link" href="https://www.codabench.org/competitions/16666/" target="_blank" rel="noreferrer">Codabench competition 16666</a>.</li>
+            <li><strong>Result files</strong> in the official submission format, submitted to <a class="link" href="https://www.codabench.org/competitions/16666/" target="_blank" rel="noreferrer">Codabench competition 16666</a> for both Phase 1 (open) and Phase 2 (hidden) test inputs. If a team participates in both tracks, the Track 1 and Track 2 results should be submitted together in a combined submission.</li>
+            <li><strong>Final materials confirmation</strong> through the <a class="link" href="https://ocn0wnz7cc7b.feishu.cn/share/base/form/shrcnY417S5AdxoYnZTx9g60590" target="_blank" rel="noreferrer">Feishu confirmation form</a>, including Phase 1 confirmation metadata, Phase 2 confirmation metadata, and a concise system description PDF. This concise system description is not the conference submission version.</li>
             <li><strong>A technical report</strong> that comprehensively describes:
               <ul>
                 <li>Training data sources and any data augmentation or preprocessing steps</li>
@@ -366,6 +367,7 @@
               The technical report must provide sufficient detail for full reproducibility. The organizers reserve the right to request <strong>verification materials</strong> — including source code, model weights, and training scripts — for any submission where reproducibility concerns arise.
             </li>
           </ol>
+          <p>The official NLPCC call for shared-task technical reports is expected to be released later than the main conference paper call.</p>
 
           <h2>4. Schedule</h2>
           <table>
@@ -376,8 +378,9 @@
             <tr><td>May 25, 2026</td><td>Registration deadline</td></tr>
             <tr><td>May 26, 2026</td><td>Phase 1 data, evaluation entry, and offline evaluation scripts released</td></tr>
             <tr><td>June 11, 2026</td><td>Hidden (held-out) test data release, no labels <strong>(Phase 2 begins)</strong></td></tr>
-            <tr><td>June 20, 2026</td><td>Deadline for participants to submit all results (Phase 1 + Phase 2)</td></tr>
-            <tr><td>June 30, 2026</td><td>Evaluation results released; call for system reports</td></tr>
+            <tr><td>June 16, 2026</td><td>Phase 1 public submissions close on Codabench (UTC+8)</td></tr>
+            <tr><td>June 17–20, 2026</td><td>Phase 2 submissions close on Codabench (UTC+8)</td></tr>
+            <tr><td>June 30, 2026</td><td>Final results released</td></tr>
           </table>
 
           <h2>5. FAQ</h2>
@@ -548,12 +551,12 @@
 
           <h3>两阶段评测</h3>
           <p>评测分两个阶段进行，以兼顾开发灵活性与防止过拟合。</p>
-          <p><strong>第一阶段 — 公开评测（2026 年 5 月 26 日 – 6 月 20 日）：</strong><br>
-          第一阶段测试数据、baseline prompting 套件与离线评测脚本已于 5 月 26 日发布，详见仓库中的 <a class="link" href="https://github.com/NLP2CT/NLPCC-2026-Task10-Science/tree/main/data" target="_blank" rel="noreferrer">data/</a>、<a class="link" href="https://github.com/NLP2CT/NLPCC-2026-Task10-Science/tree/main/baseline_prompting" target="_blank" rel="noreferrer">baseline_prompting/</a> 和 <a class="link" href="https://github.com/NLP2CT/NLPCC-2026-Task10-Science/tree/main/offline_eval" target="_blank" rel="noreferrer">offline_eval/</a> 目录。参赛队伍须按官方格式将结果文件提交至 <a class="link" href="https://www.codabench.org/competitions/16666/" target="_blank" rel="noreferrer">Codabench 第一阶段平台</a> 以获得第一阶段分数。公开排行榜将持续开放至最终提交截止日。</p>
+          <p><strong>第一阶段 — 公开评测（2026 年 5 月 26 日 – 6 月 16 日）：</strong><br>
+          第一阶段测试数据、baseline prompting 套件与离线评测脚本已于 5 月 26 日发布，详见仓库中的 <a class="link" href="https://github.com/NLP2CT/NLPCC-2026-Task10-Science/tree/main/data" target="_blank" rel="noreferrer">data/</a>、<a class="link" href="https://github.com/NLP2CT/NLPCC-2026-Task10-Science/tree/main/baseline_prompting" target="_blank" rel="noreferrer">baseline_prompting/</a> 和 <a class="link" href="https://github.com/NLP2CT/NLPCC-2026-Task10-Science/tree/main/offline_eval" target="_blank" rel="noreferrer">offline_eval/</a> 目录。参赛队伍须按官方格式将结果文件提交至 <a class="link" href="https://www.codabench.org/competitions/16666/" target="_blank" rel="noreferrer">Codabench 平台</a> 以获得第一阶段分数.</p>
           <p><strong>第二阶段 — 隐藏评测（2026 年 6 月 11 日 – 6 月 20 日）：</strong><br>
-          6 月 11 日，组织方将发布此前未对参赛者公开的隐藏测试集（不含标签）。参赛队伍须在该隐藏测试集上运行最终模型，并在提交截止日（6 月 20 日）前将结果文件提交至平台。</p>
+          6 月 11 日，组织方已发布此前未对参赛者公开的隐藏测试集（不含标签）。由于平台无法并行 Phase 提交，参赛队伍须在该隐藏测试集上运行最终模型，并于 6 月 17–20 日（UTC+8）期间通过 Codabench 平台提交第二阶段预测结果文件。第二阶段中，Codabench 平台用于收集提交文件，不会公开显示第二阶段分数排行榜。</p>
           <p><strong>最终得分：</strong><br>
-          最终排名分数为第一阶段（公开）与第二阶段（隐藏）得分的平均值。两阶段设计旨在抑制对公开测试数据的过拟合，更好地反映系统的泛化能力。</p>
+          在第二阶段测试期间，第一阶段提交将按现有提交记录自动选取最高分。最终排名时，组委会将核对第一阶段与第二阶段的所有提交结果，并与各参赛队伍私下一一核对确认最终计算所使用的文件；每个赛道、每个阶段将保留最高分。最终结果计划于 6 月 30 日（UTC+8）公布。</p>
 
           <h3>数据发布与使用政策</h3>
           <p>本共享任务发布的所有数据，包括训练/开发数据、公开测试数据和隐藏测试数据，在比赛期间仅限用于参加 NLPCC 2026 Shared Task 10。</p>
@@ -564,7 +567,8 @@
           <p><strong>禁止使用联网工具：</strong>禁止使用任何联网工具。在测试集推理过程中（第一阶段与第二阶段），系统不得调用联网工具从互联网获取外部信息。这包括但不限于网络搜索、网页浏览、实时检索 API，以及在预测时从互联网获取内容的智能体工具。</p>
           <p>每支参赛队伍须提交：</p>
           <ol>
-            <li><strong>结果文件</strong>：按官方提交格式，将第一阶段（公开）和第二阶段（隐藏）的预测结果提交至平台。第一阶段公开平台为 <a class="link" href="https://www.codabench.org/competitions/16666/" target="_blank" rel="noreferrer">Codabench competition 16666</a>。</li>
+            <li><strong>结果文件</strong>：按官方提交格式，将第一阶段（公开）和第二阶段（隐藏）的预测结果提交至 <a class="link" href="https://www.codabench.org/competitions/16666/" target="_blank" rel="noreferrer">Codabench competition 16666</a>。若队伍参加两个赛道，请确保两个赛道的结果合并在同一次提交中提交。</li>
+            <li><strong>最终材料确认</strong>：<a class="link" href="https://ocn0wnz7cc7b.feishu.cn/share/base/form/shrcnY417S5AdxoYnZTx9g60590" target="_blank" rel="noreferrer">飞书确认表格</a>汇总确认最终材料，包括 Phase 1 最终确认提交信息、Phase 2 最终确认提交信息和简要系统说明 PDF。该简要系统说明不是会议投稿版本。</li>
             <li><strong>技术报告</strong>，须全面描述以下内容：
               <ul>
                 <li>训练数据来源及数据增强或预处理步骤</li>
@@ -576,6 +580,7 @@
               技术报告须提供充分的细节以确保完全可复现。组织方保留对存在可复现性疑虑的提交要求提供<strong>验证材料</strong>（包括源代码、模型权重和训练脚本）的权利。
             </li>
           </ol>
+          <p>NLPCC 官方关于 shared task 完整技术报告的征稿通知预计会晚于主会议论文征稿通知发布。</p>
 
           <h2>4. 日程安排</h2>
           <table>
@@ -586,8 +591,9 @@
             <tr><td>2026 年 5 月 25 日</td><td>报名截止</td></tr>
             <tr><td>2026 年 5 月 26 日</td><td>发布第一阶段数据、评测入口和离线评测脚本</td></tr>
             <tr><td>2026 年 6 月 11 日</td><td>发布隐藏测试数据（不含标签）<strong>（第二阶段开始）</strong></td></tr>
-            <tr><td>2026 年 6 月 20 日</td><td>参赛队伍提交所有结果的截止日（第一阶段 + 第二阶段）</td></tr>
-            <tr><td>2026 年 6 月 30 日</td><td>公布评测结果；征集系统报告</td></tr>
+            <tr><td>2026 年 6 月 16 日</td><td>Phase 1 平台侧公开提交截止（UTC+8）</td></tr>
+            <tr><td>2026 年 6 月 17–20 日</td><td>Phase 2 在 Codabench 平台收集提交文件（UTC+8）</td></tr>
+            <tr><td>2026 年 6 月 30 日</td><td>公布最终结果</td></tr>
           </table>
 
           <h2>5. 常见问题（FAQ）</h2>

@@ -24,7 +24,7 @@
 
 ## 最新动态
 
-- **[2026/06/11]** 第二阶段隐藏测试输入（不含标签）已在 [`data/`](data/) 发布，覆盖两个赛道。
+- **[2026/06/11]** 第二阶段隐藏测试输入（不含标签）已在 [`data/`](data/) 发布，覆盖两个赛道。Phase 1 平台侧公开提交截止至 6 月 16 日（UTC+8），Phase 2 将于 6 月 17--20 日（UTC+8）在 Codabench 平台收集提交文件。
 - **[2026/05/26]** 第一阶段评测正式开启。第一阶段测试输入（[`data/`](data/)）、baseline prompting 套件（[`baseline_prompting/`](baseline_prompting/)）与离线评测脚本（[`offline_eval/`](offline_eval/)）已发布。请在 [Codabench](https://www.codabench.org/competitions/16666/) 提交第一阶段结果。
 - **[2026/04/15]** 发布任务指南及两个赛道的训练开发数据。
 - **[2026/03/20]** 共享任务公告发布，开放报名。
@@ -36,6 +36,7 @@
 | 任务指南（中文 / EN） | [GUIDELINES_ZH.md](GUIDELINES_ZH.md) / [GUIDELINES.md](GUIDELINES.md) |
 | 已发布数据（训练开发 + 第一阶段测试 + 第二阶段测试） | [`data/`](data/) |
 | 提交平台 | [Codabench competition 16666](https://www.codabench.org/competitions/16666/) |
+| 最终材料确认 | [飞书表格](https://ocn0wnz7cc7b.feishu.cn/share/base/form/shrcnY417S5AdxoYnZTx9g60590) |
 | 报名状态 | 已截止 |
 | 报名邮箱 | [nlp2ct.runzhe@gmail.com](mailto:nlp2ct.runzhe@gmail.com) |
 | 任务主页 | [nlp2ct.github.io/NLPCC-2026-Task10-Science](https://nlp2ct.github.io/NLPCC-2026-Task10-Science/) |
@@ -82,8 +83,21 @@
 | 2026 年 5 月 25 日 | 报名截止 |
 | 2026 年 5 月 26 日 | 发布第一阶段数据、评测入口和离线评测脚本 |
 | 2026 年 6 月 11 日 | 发布隐藏测试数据（不含标签）**（第二阶段）** |
-| 2026 年 6 月 20 日 | 结果提交截止日（第一阶段 + 第二阶段） |
-| 2026 年 6 月 30 日 | 公布评测结果；征集系统报告 |
+| 2026 年 6 月 16 日 | Phase 1 **平台侧公开提交**截止（UTC+8） |
+| 2026 年 6 月 20 日 | Phase 2 **平台侧公开收集**文件截止（UTC+8） |
+| 2026 年 6 月 30 日 | 公布最终结果 |
+
+## 最终材料确认表格
+
+最终提交的所有材料均需通过[飞书确认表格](https://ocn0wnz7cc7b.feishu.cn/share/base/form/shrcnY417S5AdxoYnZTx9g60590)进行汇总确认，包括：
+
+- Phase 1 最终确认提交信息
+- Phase 2 最终确认提交信息
+- 简要系统说明 PDF（请参阅任务指南了解详细信息；这不是会议投稿版本）
+
+NLPCC 官方关于 shared task 完整技术报告的征稿通知预计会晚于主会议论文征稿通知发布。
+
+Tips：在聚合 leaderboard 中，可以分别点击 `Average Score`、`Track 1 Score`、`Track 2 Score` 等字段，对对应分数进行升序或降序排序，从而快速查看整体排名或各 track 的分数排名。
 
 ## 离线评测套件与朴素Prompting范例
 
