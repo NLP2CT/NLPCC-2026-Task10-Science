@@ -3,7 +3,7 @@
 <h1>NLPCC 2026 Shared Task 10: Reliability of AI-Assisted Scientific Reporting</h1>
 <p><em>Two complementary tracks: claim-level faithfulness to experimental results and citation-level faithfulness to external evidence.</em></p>
 
-[![Guidelines](https://img.shields.io/badge/Guidelines-Available-blue?style=for-the-badge)](GUIDELINES.md) [![Phase 1 Platform](https://img.shields.io/badge/Phase_1_Platform-Codabench-green?style=for-the-badge)](https://www.codabench.org/competitions/16666/) [![Registration](https://img.shields.io/badge/Registration-Closed-lightgrey?style=for-the-badge)](mailto:nlp2ct.runzhe@gmail.com) [![Website](https://img.shields.io/badge/Website-Live-purple?style=for-the-badge)](https://nlp2ct.github.io/NLPCC-2026-Task10-Science/)
+[![Guidelines](https://img.shields.io/badge/Guidelines-Available-blue?style=for-the-badge)](GUIDELINES.md) [![Submission Platform](https://img.shields.io/badge/Submission_Platform-Codabench-green?style=for-the-badge)](https://www.codabench.org/competitions/16666/) [![Registration](https://img.shields.io/badge/Registration-Closed-lightgrey?style=for-the-badge)](mailto:nlp2ct.runzhe@gmail.com) [![Website](https://img.shields.io/badge/Website-Live-purple?style=for-the-badge)](https://nlp2ct.github.io/NLPCC-2026-Task10-Science/)
 
 </div>
 
@@ -24,6 +24,7 @@
 
 ## Latest News
 
+- **[2026/06/11]** Phase 2 hidden test inputs for both tracks are released in [`data/`](data/) without labels. 
 - **[2026/05/26]** Phase 1 is now open. Phase 1 test inputs ([`data/`](data/)), a baseline prompting kit ([`baseline_prompting/`](baseline_prompting/)), and the offline evaluation scripts ([`offline_eval/`](offline_eval/)) are released. Submit Phase 1 results on [Codabench](https://www.codabench.org/competitions/16666/).
 - **[2026/04/15]** Task guidelines and train-dev data for both tracks released.
 - **[2026/03/20]** Shared task announced. Registration is now open.
@@ -33,8 +34,8 @@
 | | Link |
 |---|---|
 | Task Guidelines (EN / 中文) | [GUIDELINES.md](GUIDELINES.md) / [GUIDELINES_ZH.md](GUIDELINES_ZH.md) |
-| Released Data (Train-Dev + Phase 1 Test) | [`data/`](data/) |
-| Phase 1 Platform | [Codabench competition 16666](https://www.codabench.org/competitions/16666/) |
+| Released Data (Train-Dev + Phase 1 Test + Phase 2 Hidden Test) | [`data/`](data/) |
+| Submission Platform | [Codabench competition 16666](https://www.codabench.org/competitions/16666/) |
 | Registration Status | Closed |
 | Registration Email | [nlp2ct.runzhe@gmail.com](mailto:nlp2ct.runzhe@gmail.com) |
 | Task Website | [nlp2ct.github.io/NLPCC-2026-Task10-Science](https://nlp2ct.github.io/NLPCC-2026-Task10-Science/) |

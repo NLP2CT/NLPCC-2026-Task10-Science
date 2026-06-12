@@ -1,0 +1,24 @@
+{
+  "split": "NLPCC 2026 Shared Task 10 Phase 2 hidden test release",
+  "counts": {
+    "track1_records": 499,
+    "track2_records": 489
+  },
+  "artifacts": [
+    {
+      "path": "data/testp2-track-1.jsonl",
+      "bytes": 1022110,
+      "sha256": "fd604e556cfae7af4149eff7e86bb2eada2a42465cf75309d2774bef3682c479"
+    },
+    {
+      "path": "data/testp2-track-2.jsonl",
+      "bytes": 44041389,
+      "sha256": "6bc0e4038cec77d01b5a9cdfd2e91edf29c7fb00d1129015736d1df58da440a3"
+    },
+    {
+      "path": "data/images-testp2.zip",
+      "bytes": 25343063,
+      "sha256": "c979f64278d347d09bfd92d5a003d99ba4ba69ea60f5766ecf5a379bcccbe2dd"
+    }
+  ]
+}
