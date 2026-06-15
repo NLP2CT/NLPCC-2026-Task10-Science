@@ -1,0 +1,824 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>NLPCC 2026 Task 10 - Phase 1 Leaderboard (Preliminary Ver.)</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f7f5;
+      --surface: #ffffff;
+      --surface-muted: #f1f1ee;
+      --border: #deded8;
+      --border-strong: #c9c9c2;
+      --text: #0d0d0d;
+      --muted: #6f6f69;
+      --accent: #10a37f;
+      --accent-strong: #0d8f70;
+      --accent-soft: #e8f7f2;
+      --focus: #10a37f;
+      --gold: #9a6b00;
+      --gold-bg: #fff5cf;
+      --silver: #59636e;
+      --silver-bg: #edf0f3;
+      --bronze: #8a4b20;
+      --bronze-bg: #f8e8dc;
+      --radius: 8px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    button,
+    input {
+      font: inherit;
+      letter-spacing: 0;
+    }
+
+    button:focus-visible,
+    input:focus-visible,
+    a:focus-visible {
+      outline: 3px solid rgba(16, 163, 127, 0.24);
+      outline-offset: 2px;
+    }
+
+    .page-shell {
+      width: min(1220px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 48px;
+    }
+
+    .masthead {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .identity {
+      min-width: 0;
+    }
+
+    .phase {
+      margin: 0 0 5px;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 750;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 25px;
+      line-height: 1.2;
+      font-weight: 650;
+      letter-spacing: 0;
+    }
+
+    .toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 0 14px;
+    }
+
+    .tabs {
+      display: inline-flex;
+      gap: 2px;
+      padding: 3px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface-muted);
+    }
+
+    .tab {
+      min-width: 96px;
+      border: 0;
+      border-radius: 4px;
+      padding: 8px 13px;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .tab:hover {
+      color: var(--text);
+    }
+
+    .tab[aria-selected="true"] {
+      background: var(--text);
+      color: var(--surface);
+      box-shadow: 0 1px 2px rgba(13, 13, 13, 0.16);
+    }
+
+    .search-wrap {
+      position: relative;
+      width: min(290px, 100%);
+    }
+
+    .search-wrap::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 12px;
+      width: 10px;
+      height: 10px;
+      border: 2px solid var(--muted);
+      border-radius: 50%;
+      transform: translateY(-62%);
+      pointer-events: none;
+    }
+
+    .search-wrap::after {
+      content: "";
+      position: absolute;
+      top: calc(50% + 5px);
+      left: 22px;
+      width: 6px;
+      height: 2px;
+      background: var(--muted);
+      transform: rotate(45deg);
+      transform-origin: left center;
+      pointer-events: none;
+    }
+
+    #team-search {
+      width: 100%;
+      height: 38px;
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius);
+      padding: 7px 12px 7px 35px;
+      background: var(--surface);
+      color: var(--text);
+    }
+
+    #team-search::placeholder {
+      color: #89939d;
+    }
+
+    .status {
+      min-height: 44px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 12px 14px;
+      background: var(--surface);
+      color: var(--muted);
+    }
+
+    .status.error {
+      border-color: #d99ba3;
+      background: var(--accent-soft);
+      color: #7e1d2a;
+    }
+
+    .table-panel {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+
+    .table-scroll {
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+    }
+
+    table {
+      width: 100%;
+      min-width: 760px;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+
+    th,
+    td {
+      border-bottom: 1px solid var(--border);
+      padding: 11px 13px;
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    th {
+      height: 44px;
+      background: var(--surface-muted);
+      color: #4f5b66;
+      font-size: 11px;
+      font-weight: 760;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    th:first-child,
+    td:first-child {
+      width: 76px;
+      text-align: center;
+    }
+
+    th:last-child,
+    td:last-child {
+      width: 58px;
+      text-align: center;
+    }
+
+    tbody tr.data-row {
+      cursor: pointer;
+    }
+
+    tbody tr.data-row:hover {
+      background: #fafaf8;
+    }
+
+    tbody tr.data-row[aria-expanded="true"] {
+      background: #f8f9fa;
+    }
+
+    tbody tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .sort-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      width: 100%;
+      border: 0;
+      padding: 0;
+      background: transparent;
+      color: inherit;
+      cursor: pointer;
+      font: inherit;
+      font-weight: inherit;
+      text-align: left;
+      text-transform: inherit;
+    }
+
+    .numeric .sort-button {
+      justify-content: flex-end;
+      text-align: right;
+    }
+
+    .sort-mark {
+      width: 12px;
+      color: #8a949e;
+      text-align: center;
+    }
+
+    .numeric {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .team {
+      overflow-wrap: anywhere;
+      font-weight: 720;
+    }
+
+    .rank-badge {
+      display: inline-grid;
+      place-items: center;
+      min-width: 30px;
+      height: 26px;
+      border-radius: 4px;
+      background: var(--surface-muted);
+      color: var(--muted);
+      font-weight: 760;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .rank-1 .rank-badge {
+      background: var(--gold-bg);
+      color: var(--gold);
+    }
+
+    .rank-2 .rank-badge {
+      background: var(--silver-bg);
+      color: var(--silver);
+    }
+
+    .rank-3 .rank-badge {
+      background: var(--bronze-bg);
+      color: var(--bronze);
+    }
+
+    .expand-button {
+      display: inline-grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    .expand-button:hover {
+      border-color: var(--border);
+      background: var(--surface-muted);
+      color: var(--text);
+    }
+
+    .data-row[aria-expanded="true"] .expand-button {
+      color: var(--accent);
+      transform: rotate(90deg);
+    }
+
+    .detail-row td {
+      width: auto !important;
+      padding: 0;
+      background: #f8f9fa;
+      text-align: left !important;
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1px;
+      padding: 1px;
+      background: var(--border);
+    }
+
+    .detail-item {
+      min-width: 0;
+      padding: 12px 14px;
+      background: var(--surface);
+    }
+
+    .detail-item.wide {
+      grid-column: span 2;
+    }
+
+    .detail-label {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 750;
+      text-transform: uppercase;
+    }
+
+    .detail-value {
+      display: block;
+      overflow-wrap: anywhere;
+      font-variant-numeric: tabular-nums;
+      font-weight: 650;
+    }
+
+    .result-note {
+      padding: 11px 13px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .empty-row td {
+      padding: 34px 16px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    @media (max-width: 760px) {
+      .page-shell {
+        width: min(100% - 20px, 1220px);
+        padding-top: 18px;
+      }
+
+      .masthead {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      h1 {
+        font-size: 21px;
+      }
+
+      .toolbar {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .tabs {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .tab {
+        min-width: 0;
+        padding-inline: 8px;
+      }
+
+      .search-wrap {
+        width: 100%;
+      }
+
+      .detail-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .detail-item.wide {
+        grid-column: auto;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .detail-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .detail-item.wide {
+        grid-column: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page-shell">
+    <header class="masthead">
+      <div class="identity">
+        <p class="phase" id="phase-label">Phase 1</p>
+        <h1 id="competition-title">NLPCC 2026 Shared Task 10 AISR</h1>
+      </div>
+    </header>
+
+    <section class="toolbar" aria-label="Leaderboard controls">
+      <div class="tabs" role="tablist" aria-label="Ranking">
+        <button class="tab" type="button" role="tab" data-track="track1"
+          aria-selected="true">Track 1</button>
+        <button class="tab" type="button" role="tab" data-track="track2"
+          aria-selected="false">Track 2</button>
+        <button class="tab" type="button" role="tab" data-track="combined"
+          aria-selected="false">Track 1 + 2</button>
+      </div>
+      <label class="search-wrap">
+        <span hidden>Search teams</span>
+        <input id="team-search" type="search" autocomplete="off"
+          placeholder="Search team">
+      </label>
+    </section>
+
+    <div id="load-status" class="status" role="status">Loading leaderboard data...</div>
+
+    <section id="table-panel" class="table-panel" hidden>
+      <div class="table-scroll">
+        <table id="ranking-table">
+          <thead id="ranking-head"></thead>
+          <tbody id="ranking-body"></tbody>
+        </table>
+      </div>
+      <div class="result-note" id="result-note"></div>
+    </section>
+  </main>
+
+  <script>
+    "use strict";
+
+    const inlinePayload = {"schema_version":1,"competition":"NLPCC 2026 Shared Task 10 AISR","phase":"Phase 1","summary":{"track1_teams":9,"track2_teams":13,"combined_teams":8},"rankings":{"track1":[{"rank":1,"username":"chuhaicai","track1_score":51.8457291298,"track1_macro_f1":56.5924821504,"track1_pem":47.0989761092,"submission_pk":798937,"filename_timestamp":"2026-06-15_56-37"},{"rank":2,"username":"xjdx_001","track1_score":50.6137405095,"track1_macro_f1":57.5414741931,"track1_pem":43.6860068259,"submission_pk":798978,"filename_timestamp":"2026-06-15_22-48"},{"rank":3,"username":"wangzhenchao","track1_score":47.1814639889,"track1_macro_f1":51.3595150086,"track1_pem":43.0034129693,"submission_pk":799031,"filename_timestamp":"2026-06-15_57-06"},{"rank":4,"username":"bit-trustai","track1_score":44.0947036316,"track1_macro_f1":49.9641512905,"track1_pem":38.2252559727,"submission_pk":799038,"filename_timestamp":"2026-06-15_58-42"},{"rank":5,"username":"hzt_spidey_111","track1_score":42.4414510728,"track1_macro_f1":48.0228338862,"track1_pem":36.8600682594,"submission_pk":798688,"filename_timestamp":"2026-06-15_24-42"},{"rank":6,"username":"tony_he","track1_score":37.5461006064,"track1_macro_f1":40.2799145233,"track1_pem":34.8122866894,"submission_pk":775822,"filename_timestamp":"2026-06-02_58-44"},{"rank":7,"username":"jijifangongdui","track1_score":17.3295981377,"track1_macro_f1":18.9595375723,"track1_pem":15.6996587031,"submission_pk":778022,"filename_timestamp":"2026-06-03_36-43"},{"rank":8,"username":"emptyboat","track1_score":11.2266965533,"track1_macro_f1":20.4056115366,"track1_pem":2.04778157,"submission_pk":789727,"filename_timestamp":"2026-06-10_26-31"},{"rank":9,"username":"quincyqiang","track1_score":11.0428049094,"track1_macro_f1":17.9900466789,"track1_pem":4.0955631399,"submission_pk":785843,"filename_timestamp":"2026-06-08_03-56"}],"track2":[{"rank":1,"username":"xjdx_001","track2_score":86.2125344218,"track2_macro_f1":90.4613548628,"track2_joint_at_3":81.9637139808,"submission_pk":798978,"filename_timestamp":"2026-06-15_22-48"},{"rank":2,"username":"wangzhenchao","track2_score":81.6983825835,"track2_macro_f1":91.7852390197,"track2_joint_at_3":71.6115261473,"submission_pk":799031,"filename_timestamp":"2026-06-15_57-06"},{"rank":3,"username":"lynn27149","track2_score":81.2752525185,"track2_macro_f1":86.990206211,"track2_joint_at_3":75.560298826,"submission_pk":798234,"filename_timestamp":"2026-06-15_15-52"},{"rank":4,"username":"hzt_spidey_111","track2_score":80.8846251728,"track2_macro_f1":93.4661553617,"track2_joint_at_3":68.303094984,"submission_pk":798142,"filename_timestamp":"2026-06-15_17-01"},{"rank":5,"username":"chuhaicai","track2_score":80.881620487,"track2_macro_f1":92.1794629591,"track2_joint_at_3":69.5837780149,"submission_pk":798931,"filename_timestamp":"2026-06-15_51-58"},{"rank":6,"username":"seb11111","track2_score":79.3764229231,"track2_macro_f1":84.7934008089,"track2_joint_at_3":73.9594450374,"submission_pk":798174,"filename_timestamp":"2026-06-15_40-45"},{"rank":7,"username":"emptyboat","track2_score":78.7260959486,"track2_macro_f1":89.4692676709,"track2_joint_at_3":67.9829242263,"submission_pk":798596,"filename_timestamp":"2026-06-15_58-32"},{"rank":8,"username":"bit-trustai","track2_score":76.881762179,"track2_macro_f1":88.021795436,"track2_joint_at_3":65.7417289221,"submission_pk":799038,"filename_timestamp":"2026-06-15_58-42"},{"rank":9,"username":"snuc_van","track2_score":76.6864574234,"track2_macro_f1":87.3110151671,"track2_joint_at_3":66.0618996798,"submission_pk":798414,"filename_timestamp":"2026-06-15_26-04"},{"rank":10,"username":"telechat","track2_score":72.2987614359,"track2_macro_f1":86.8600628931,"track2_joint_at_3":57.7374599787,"submission_pk":792963,"filename_timestamp":"2026-06-12_51-42"},{"rank":11,"username":"jijifangongdui","track2_score":71.2279481174,"track2_macro_f1":80.1293220619,"track2_joint_at_3":62.3265741729,"submission_pk":792819,"filename_timestamp":"2026-06-12_03-49"},{"rank":12,"username":"stanit","track2_score":68.7742483859,"track2_macro_f1":81.8387849255,"track2_joint_at_3":55.7097118463,"submission_pk":793534,"filename_timestamp":"2026-06-12_07-56"},{"rank":13,"username":"quincyqiang","track2_score":27.0617337549,"track2_macro_f1":36.1939050764,"track2_joint_at_3":17.9295624333,"submission_pk":785843,"filename_timestamp":"2026-06-08_03-56"}],"combined":[{"rank":1,"username":"xjdx_001","combined_score":68.4131374657,"track1_score":50.6137405095,"track1_submission_pk":798978,"track2_score":86.2125344218,"track2_submission_pk":798978},{"rank":2,"username":"chuhaicai","combined_score":66.3636748084,"track1_score":51.8457291298,"track1_submission_pk":798937,"track2_score":80.881620487,"track2_submission_pk":798931},{"rank":3,"username":"wangzhenchao","combined_score":64.4399232862,"track1_score":47.1814639889,"track1_submission_pk":799031,"track2_score":81.6983825835,"track2_submission_pk":799031},{"rank":4,"username":"hzt_spidey_111","combined_score":61.6630381228,"track1_score":42.4414510728,"track1_submission_pk":798688,"track2_score":80.8846251728,"track2_submission_pk":798142},{"rank":5,"username":"bit-trustai","combined_score":60.4882329053,"track1_score":44.0947036316,"track1_submission_pk":799038,"track2_score":76.881762179,"track2_submission_pk":799038},{"rank":6,"username":"emptyboat","combined_score":44.9763962509,"track1_score":11.2266965533,"track1_submission_pk":789727,"track2_score":78.7260959486,"track2_submission_pk":798596},{"rank":7,"username":"jijifangongdui","combined_score":44.2787731275,"track1_score":17.3295981377,"track1_submission_pk":778022,"track2_score":71.2279481174,"track2_submission_pk":792819},{"rank":8,"username":"quincyqiang","combined_score":19.0522693321,"track1_score":11.0428049094,"track1_submission_pk":785843,"track2_score":27.0617337549,"track2_submission_pk":785843}]}};
+
+    const configs = {
+      track1: {
+        label: "Track 1",
+        scoreKey: "track1_score",
+        columns: [
+          { key: "rank", label: "Rank", numeric: true },
+          { key: "username", label: "Submission User" },
+          { key: "track1_score", label: "Score", numeric: true, score: true },
+          { key: "track1_macro_f1", label: "Macro-F1", numeric: true, score: true },
+          { key: "track1_pem", label: "PEM", numeric: true, score: true }
+        ],
+        details: [
+          ["Score", "track1_score", true],
+          ["Macro-F1", "track1_macro_f1", true],
+          ["PEM", "track1_pem", true],
+          ["Submission PK", "submission_pk", false],
+          ["Export timestamp", "filename_timestamp", false]
+        ]
+      },
+      track2: {
+        label: "Track 2",
+        scoreKey: "track2_score",
+        columns: [
+          { key: "rank", label: "Rank", numeric: true },
+          { key: "username", label: "Submission User" },
+          { key: "track2_score", label: "Score", numeric: true, score: true },
+          { key: "track2_macro_f1", label: "Macro-F1", numeric: true, score: true },
+          { key: "track2_joint_at_3", label: "Joint@3", numeric: true, score: true }
+        ],
+        details: [
+          ["Score", "track2_score", true],
+          ["Macro-F1", "track2_macro_f1", true],
+          ["Joint@3", "track2_joint_at_3", true],
+          ["Submission PK", "submission_pk", false],
+          ["Export timestamp", "filename_timestamp", false]
+        ]
+      },
+      combined: {
+        label: "Combined",
+        scoreKey: "combined_score",
+        columns: [
+          { key: "rank", label: "Rank", numeric: true },
+          { key: "username", label: "Submission User" },
+          { key: "combined_score", label: "Average", numeric: true, score: true },
+          { key: "track1_score", label: "Track 1", numeric: true, score: true },
+          { key: "track2_score", label: "Track 2", numeric: true, score: true }
+        ],
+        details: [
+          ["Average score", "combined_score", true],
+          ["Track 1 score", "track1_score", true],
+          ["Track 1 submission PK", "track1_submission_pk", false],
+          ["Track 2 score", "track2_score", true],
+          ["Track 2 submission PK", "track2_submission_pk", false]
+        ]
+      }
+    };
+
+    const state = {
+      payload: null,
+      track: "track1",
+      query: "",
+      sortKey: "track1_score",
+      sortDirection: "desc",
+      expandedKey: null
+    };
+
+    const statusNode = document.querySelector("#load-status");
+    const panelNode = document.querySelector("#table-panel");
+    const headNode = document.querySelector("#ranking-head");
+    const bodyNode = document.querySelector("#ranking-body");
+    const searchNode = document.querySelector("#team-search");
+    const resultNoteNode = document.querySelector("#result-note");
+
+    function formatScore(value) {
+      return Number(value).toFixed(4);
+    }
+
+    function appendText(parent, tag, text, className) {
+      const node = document.createElement(tag);
+      if (className) node.className = className;
+      node.textContent = String(text);
+      parent.appendChild(node);
+      return node;
+    }
+
+    function makeHeader(config) {
+      headNode.replaceChildren();
+      const row = document.createElement("tr");
+      for (const column of config.columns) {
+        const cell = document.createElement("th");
+        if (column.numeric) cell.classList.add("numeric");
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "sort-button";
+        button.dataset.sortKey = column.key;
+        button.setAttribute("aria-label", `Sort by ${column.label}`);
+        appendText(button, "span", column.label);
+        const mark = appendText(button, "span", "", "sort-mark");
+        mark.setAttribute("aria-hidden", "true");
+        if (state.sortKey === column.key) {
+          mark.textContent = state.sortDirection === "asc" ? "^" : "v";
+          button.setAttribute(
+            "aria-label",
+            `Sort by ${column.label}, currently ${state.sortDirection}`
+          );
+        }
+        cell.appendChild(button);
+        row.appendChild(cell);
+      }
+      const expandHeader = document.createElement("th");
+      expandHeader.textContent = "Details";
+      row.appendChild(expandHeader);
+      headNode.appendChild(row);
+    }
+
+    function detailEntries(row, config) {
+      const entries = config.details.map(([label, key, score, wide]) => ({
+        label,
+        value: score ? formatScore(row[key]) : row[key],
+        wide: Boolean(wide)
+      }));
+      if (state.track === "combined") {
+        entries.push({
+          label: "Best-score source",
+          value: row.track1_submission_pk === row.track2_submission_pk
+            ? "Same submission"
+            : "Different submissions",
+          wide: true
+        });
+      }
+      return entries;
+    }
+
+    function renderDetailRow(row, config, columnCount) {
+      const detailRow = document.createElement("tr");
+      detailRow.className = "detail-row";
+      const cell = document.createElement("td");
+      cell.colSpan = columnCount + 1;
+      const grid = document.createElement("div");
+      grid.className = "detail-grid";
+      for (const entry of detailEntries(row, config)) {
+        const item = document.createElement("div");
+        item.className = entry.wide ? "detail-item wide" : "detail-item";
+        appendText(item, "span", entry.label, "detail-label");
+        appendText(item, "span", entry.value, "detail-value");
+        grid.appendChild(item);
+      }
+      cell.appendChild(grid);
+      detailRow.appendChild(cell);
+      return detailRow;
+    }
+
+    function compareRows(left, right) {
+      const key = state.sortKey;
+      const leftValue = left[key];
+      const rightValue = right[key];
+      let comparison;
+      if (typeof leftValue === "number" && typeof rightValue === "number") {
+        comparison = leftValue - rightValue;
+      } else {
+        comparison = String(leftValue).localeCompare(String(rightValue));
+      }
+      if (comparison === 0) {
+        comparison = Number(left.rank) - Number(right.rank);
+      }
+      return state.sortDirection === "asc" ? comparison : -comparison;
+    }
+
+    function visibleRows() {
+      const rows = state.payload.rankings[state.track] || [];
+      const query = state.query.trim().toLocaleLowerCase();
+      return rows
+        .filter((row) => !query || String(row.username).toLocaleLowerCase().includes(query))
+        .slice()
+        .sort(compareRows);
+    }
+
+    function renderRows(config) {
+      bodyNode.replaceChildren();
+      const rows = visibleRows();
+      if (!rows.length) {
+        const emptyRow = document.createElement("tr");
+        emptyRow.className = "empty-row";
+        const cell = document.createElement("td");
+        cell.colSpan = config.columns.length + 1;
+        cell.textContent = state.query ? "No matching teams." : "No ranking data.";
+        emptyRow.appendChild(cell);
+        bodyNode.appendChild(emptyRow);
+      }
+
+      for (const row of rows) {
+        const rowKey = `${state.track}:${row.username}`;
+        const expanded = state.expandedKey === rowKey;
+        const dataRow = document.createElement("tr");
+        dataRow.className = `data-row rank-${row.rank}`;
+        dataRow.dataset.rowKey = rowKey;
+        dataRow.tabIndex = 0;
+        dataRow.setAttribute("aria-expanded", String(expanded));
+
+        for (const column of config.columns) {
+          const cell = document.createElement("td");
+          if (column.numeric) cell.classList.add("numeric");
+          if (column.key === "rank") {
+            appendText(cell, "span", row.rank, "rank-badge");
+          } else {
+            const value = column.score ? formatScore(row[column.key]) : row[column.key];
+            appendText(
+              cell,
+              "span",
+              value,
+              column.key === "username" ? "team" : ""
+            );
+          }
+          dataRow.appendChild(cell);
+        }
+
+        const actionCell = document.createElement("td");
+        const expandButton = appendText(actionCell, "button", "›", "expand-button");
+        expandButton.type = "button";
+        expandButton.title = expanded ? "Hide details" : "Show details";
+        expandButton.setAttribute(
+          "aria-label",
+          `${expanded ? "Hide" : "Show"} details for ${row.username}`
+        );
+        dataRow.appendChild(actionCell);
+        bodyNode.appendChild(dataRow);
+        if (expanded) {
+          bodyNode.appendChild(renderDetailRow(row, config, config.columns.length));
+        }
+      }
+
+      resultNoteNode.textContent =
+        `${rows.length} of ${state.payload.rankings[state.track].length} teams`;
+    }
+
+    function render() {
+      if (!state.payload) return;
+      const config = configs[state.track];
+      makeHeader(config);
+      renderRows(config);
+    }
+
+    function selectTrack(track) {
+      state.track = track;
+      state.sortKey = configs[track].scoreKey;
+      state.sortDirection = "desc";
+      state.expandedKey = null;
+      document.querySelectorAll(".tab").forEach((tab) => {
+        tab.setAttribute("aria-selected", String(tab.dataset.track === track));
+      });
+      render();
+    }
+
+    function toggleDetails(rowKey) {
+      state.expandedKey = state.expandedKey === rowKey ? null : rowKey;
+      render();
+    }
+
+    document.querySelector(".tabs").addEventListener("click", (event) => {
+      const tab = event.target.closest("[data-track]");
+      if (tab) selectTrack(tab.dataset.track);
+    });
+
+    searchNode.addEventListener("input", () => {
+      state.query = searchNode.value;
+      state.expandedKey = null;
+      render();
+    });
+
+    headNode.addEventListener("click", (event) => {
+      const button = event.target.closest("[data-sort-key]");
+      if (!button) return;
+      const key = button.dataset.sortKey;
+      if (state.sortKey === key) {
+        state.sortDirection = state.sortDirection === "asc" ? "desc" : "asc";
+      } else {
+        state.sortKey = key;
+        state.sortDirection = key === "username" ? "asc" : "desc";
+      }
+      render();
+    });
+
+    bodyNode.addEventListener("click", (event) => {
+      const row = event.target.closest(".data-row");
+      if (row) toggleDetails(row.dataset.rowKey);
+    });
+
+    bodyNode.addEventListener("keydown", (event) => {
+      const row = event.target.closest(".data-row");
+      if (row && (event.key === "Enter" || event.key === " ")) {
+        event.preventDefault();
+        toggleDetails(row.dataset.rowKey);
+      }
+    });
+
+    const dataPromise = Promise.resolve(inlinePayload);
+
+    dataPromise
+      .then((payload) => {
+        if (!payload || !payload.summary || !payload.rankings) {
+          throw new Error("Unexpected data format");
+        }
+        for (const track of Object.keys(configs)) {
+          if (!Array.isArray(payload.rankings[track])) {
+            throw new Error(`Missing ${track} ranking`);
+          }
+        }
+        state.payload = payload;
+        document.querySelector("#competition-title").textContent = payload.competition;
+        document.querySelector("#phase-label").textContent = payload.phase;
+        statusNode.hidden = true;
+        panelNode.hidden = false;
+        render();
+      })
+      .catch((error) => {
+        statusNode.classList.add("error");
+        statusNode.textContent =
+          `Could not load leaderboard data (${error.message}). Serve this directory over HTTP.`;
+      });
+  </script>
+</body>
+</html>

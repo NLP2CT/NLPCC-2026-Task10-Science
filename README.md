@@ -24,6 +24,7 @@
 
 ## Latest News
 
+- **[2026/06/16]** A preliminary version of the Phase 1 results is now available on the [Phase 1 leaderboard](leaderboard.html) ([Markdown](leaderboard.md)). This is not the final confirmed version; the results will be updated after final confirmation with the participating teams.
 - **[2026/06/11]** Phase 2 hidden test inputs for both tracks are released in [`data/`](data/) without labels. Phase 1 public submissions close on June 16 (UTC+8), and Phase 2 submissions are collected on Codabench during June 17--20 (UTC+8).
 - **[2026/05/26]** Phase 1 is now open. Phase 1 test inputs ([`data/`](data/)), a baseline prompting kit ([`baseline_prompting/`](baseline_prompting/)), and the offline evaluation scripts ([`offline_eval/`](offline_eval/)) are released. Submit Phase 1 results on [Codabench](https://www.codabench.org/competitions/16666/).
 - **[2026/04/15]** Task guidelines and train-dev data for both tracks released.
