@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="data:,">
-  <title>NLPCC 2026 Task 10 - Phase 1 Leaderboard (Preliminary Ver.)</title>
+  <title>NLPCC 2026 Task 10 - Final Leaderboard</title>
   <style>
     :root {
       color-scheme: light;
@@ -203,7 +203,7 @@
 
     table {
       width: 100%;
-      min-width: 760px;
+      min-width: 1280px;
       border-collapse: collapse;
       table-layout: fixed;
     }
@@ -240,6 +240,10 @@
 
     tbody tr.data-row {
       cursor: pointer;
+    }
+
+    tbody tr.data-row.no-details {
+      cursor: default;
     }
 
     tbody tr.data-row:hover {
@@ -289,6 +293,10 @@
     .team {
       overflow-wrap: anywhere;
       font-weight: 720;
+    }
+
+    .meta {
+      overflow-wrap: anywhere;
     }
 
     .rank-badge {
@@ -476,9 +484,9 @@
           aria-selected="false">Track 1 + 2</button>
       </div>
       <label class="search-wrap">
-        <span hidden>Search teams</span>
+        <span hidden>Search teams, systems, organizations, or members</span>
         <input id="team-search" type="search" autocomplete="off"
-          placeholder="Search team">
+          placeholder="Search team, system, organization, member">
       </label>
     </section>
 
@@ -498,61 +506,83 @@
   <script>
     "use strict";
 
-    const inlinePayload = {"schema_version":1,"competition":"NLPCC 2026 Shared Task 10 AISR","phase":"Phase 1","summary":{"track1_teams":9,"track2_teams":13,"combined_teams":8},"rankings":{"track1":[{"rank":1,"username":"chuhaicai","track1_score":51.8457291298,"track1_macro_f1":56.5924821504,"track1_pem":47.0989761092,"submission_pk":798937,"filename_timestamp":"2026-06-15_56-37"},{"rank":2,"username":"xjdx_001","track1_score":50.6137405095,"track1_macro_f1":57.5414741931,"track1_pem":43.6860068259,"submission_pk":798978,"filename_timestamp":"2026-06-15_22-48"},{"rank":3,"username":"wangzhenchao","track1_score":47.1814639889,"track1_macro_f1":51.3595150086,"track1_pem":43.0034129693,"submission_pk":799031,"filename_timestamp":"2026-06-15_57-06"},{"rank":4,"username":"bit-trustai","track1_score":44.0947036316,"track1_macro_f1":49.9641512905,"track1_pem":38.2252559727,"submission_pk":799038,"filename_timestamp":"2026-06-15_58-42"},{"rank":5,"username":"hzt_spidey_111","track1_score":42.4414510728,"track1_macro_f1":48.0228338862,"track1_pem":36.8600682594,"submission_pk":798688,"filename_timestamp":"2026-06-15_24-42"},{"rank":6,"username":"tony_he","track1_score":37.5461006064,"track1_macro_f1":40.2799145233,"track1_pem":34.8122866894,"submission_pk":775822,"filename_timestamp":"2026-06-02_58-44"},{"rank":7,"username":"jijifangongdui","track1_score":17.3295981377,"track1_macro_f1":18.9595375723,"track1_pem":15.6996587031,"submission_pk":778022,"filename_timestamp":"2026-06-03_36-43"},{"rank":8,"username":"emptyboat","track1_score":11.2266965533,"track1_macro_f1":20.4056115366,"track1_pem":2.04778157,"submission_pk":789727,"filename_timestamp":"2026-06-10_26-31"},{"rank":9,"username":"quincyqiang","track1_score":11.0428049094,"track1_macro_f1":17.9900466789,"track1_pem":4.0955631399,"submission_pk":785843,"filename_timestamp":"2026-06-08_03-56"}],"track2":[{"rank":1,"username":"xjdx_001","track2_score":86.2125344218,"track2_macro_f1":90.4613548628,"track2_joint_at_3":81.9637139808,"submission_pk":798978,"filename_timestamp":"2026-06-15_22-48"},{"rank":2,"username":"wangzhenchao","track2_score":81.6983825835,"track2_macro_f1":91.7852390197,"track2_joint_at_3":71.6115261473,"submission_pk":799031,"filename_timestamp":"2026-06-15_57-06"},{"rank":3,"username":"lynn27149","track2_score":81.2752525185,"track2_macro_f1":86.990206211,"track2_joint_at_3":75.560298826,"submission_pk":798234,"filename_timestamp":"2026-06-15_15-52"},{"rank":4,"username":"hzt_spidey_111","track2_score":80.8846251728,"track2_macro_f1":93.4661553617,"track2_joint_at_3":68.303094984,"submission_pk":798142,"filename_timestamp":"2026-06-15_17-01"},{"rank":5,"username":"chuhaicai","track2_score":80.881620487,"track2_macro_f1":92.1794629591,"track2_joint_at_3":69.5837780149,"submission_pk":798931,"filename_timestamp":"2026-06-15_51-58"},{"rank":6,"username":"seb11111","track2_score":79.3764229231,"track2_macro_f1":84.7934008089,"track2_joint_at_3":73.9594450374,"submission_pk":798174,"filename_timestamp":"2026-06-15_40-45"},{"rank":7,"username":"emptyboat","track2_score":78.7260959486,"track2_macro_f1":89.4692676709,"track2_joint_at_3":67.9829242263,"submission_pk":798596,"filename_timestamp":"2026-06-15_58-32"},{"rank":8,"username":"bit-trustai","track2_score":76.881762179,"track2_macro_f1":88.021795436,"track2_joint_at_3":65.7417289221,"submission_pk":799038,"filename_timestamp":"2026-06-15_58-42"},{"rank":9,"username":"snuc_van","track2_score":76.6864574234,"track2_macro_f1":87.3110151671,"track2_joint_at_3":66.0618996798,"submission_pk":798414,"filename_timestamp":"2026-06-15_26-04"},{"rank":10,"username":"telechat","track2_score":72.2987614359,"track2_macro_f1":86.8600628931,"track2_joint_at_3":57.7374599787,"submission_pk":792963,"filename_timestamp":"2026-06-12_51-42"},{"rank":11,"username":"jijifangongdui","track2_score":71.2279481174,"track2_macro_f1":80.1293220619,"track2_joint_at_3":62.3265741729,"submission_pk":792819,"filename_timestamp":"2026-06-12_03-49"},{"rank":12,"username":"stanit","track2_score":68.7742483859,"track2_macro_f1":81.8387849255,"track2_joint_at_3":55.7097118463,"submission_pk":793534,"filename_timestamp":"2026-06-12_07-56"},{"rank":13,"username":"quincyqiang","track2_score":27.0617337549,"track2_macro_f1":36.1939050764,"track2_joint_at_3":17.9295624333,"submission_pk":785843,"filename_timestamp":"2026-06-08_03-56"}],"combined":[{"rank":1,"username":"xjdx_001","combined_score":68.4131374657,"track1_score":50.6137405095,"track1_submission_pk":798978,"track2_score":86.2125344218,"track2_submission_pk":798978},{"rank":2,"username":"chuhaicai","combined_score":66.3636748084,"track1_score":51.8457291298,"track1_submission_pk":798937,"track2_score":80.881620487,"track2_submission_pk":798931},{"rank":3,"username":"wangzhenchao","combined_score":64.4399232862,"track1_score":47.1814639889,"track1_submission_pk":799031,"track2_score":81.6983825835,"track2_submission_pk":799031},{"rank":4,"username":"hzt_spidey_111","combined_score":61.6630381228,"track1_score":42.4414510728,"track1_submission_pk":798688,"track2_score":80.8846251728,"track2_submission_pk":798142},{"rank":5,"username":"bit-trustai","combined_score":60.4882329053,"track1_score":44.0947036316,"track1_submission_pk":799038,"track2_score":76.881762179,"track2_submission_pk":799038},{"rank":6,"username":"emptyboat","combined_score":44.9763962509,"track1_score":11.2266965533,"track1_submission_pk":789727,"track2_score":78.7260959486,"track2_submission_pk":798596},{"rank":7,"username":"jijifangongdui","combined_score":44.2787731275,"track1_score":17.3295981377,"track1_submission_pk":778022,"track2_score":71.2279481174,"track2_submission_pk":792819},{"rank":8,"username":"quincyqiang","combined_score":19.0522693321,"track1_score":11.0428049094,"track1_submission_pk":785843,"track2_score":27.0617337549,"track2_submission_pk":785843}]}};
+    const inlinePayload = {"schema_version":2,"competition":"NLPCC 2026 Shared Task 10 AISR","phase":"Final Phase 1 + Phase 2","rule":"Final track participation is based on Phase 1 records. If a Phase 1 participant did not submit the same track in Phase 2, the Phase 2 score is 0. Track 1+2 participation is based on Phase 1 combined records.","summary":{"final_track1_teams":11,"final_track2_teams":15,"final_combined_teams":10},"rankings":{"track1":[{"username":"chuhaicai","final_track1_score":68.89568911565605,"phase1_track1_score":51.84572912981211,"phase2_track1_score":85.9456491015,"final_track1_macro_f1":73.56052745130461,"phase1_track1_macro_f1":56.5924821504092,"phase2_track1_macro_f1":90.5285727522,"final_track1_pem":64.23085078005751,"phase1_track1_pem":47.098976109215016,"phase2_track1_pem":81.3627254509,"phase1_track1_submission_pk":798937,"phase2_track1_submission_pk":805644,"phase1_timestamp":"2026-06-15_56-37","phase2_timestamp":"2026-06-20_37-31","rank":1,"system_name":"SUAT-NLP","organization":"深圳理工大学","members":"蔡楚海；蒋峰, 陈鑫, 杨敏"},{"username":"xjdx_001","final_track1_score":68.78948893961359,"phase1_track1_score":50.61374050952718,"phase2_track1_score":86.9652373697,"final_track1_macro_f1":74.0526077328079,"phase1_track1_macro_f1":57.5414741931158,"phase2_track1_macro_f1":90.5637412725,"final_track1_pem":63.52637014641928,"phase1_track1_pem":43.68600682593857,"phase2_track1_pem":83.3667334669,"phase1_track1_submission_pk":798978,"phase2_track1_submission_pk":799385,"phase1_timestamp":"2026-06-15_22-48","phase2_timestamp":"2026-06-16_07-37","rank":2,"system_name":"XJDX_001","organization":"新疆大学","members":"左梓呈；赵文彪, 史龙堃"},{"username":"bit-trustai","final_track1_score":57.98804617846086,"phase1_track1_score":44.094703631621734,"phase2_track1_score":71.8813887253,"final_track1_macro_f1":62.59492729637361,"phase1_track1_macro_f1":49.964151290547214,"phase2_track1_macro_f1":75.2257033022,"final_track1_pem":53.38116506049812,"phase1_track1_pem":38.225255972696246,"phase2_track1_pem":68.5370741483,"phase1_track1_submission_pk":799038,"phase2_track1_submission_pk":804671,"phase1_timestamp":"2026-06-15_58-42","phase2_timestamp":"2026-06-20_24-41","rank":3,"system_name":"BIT-TrustAI","organization":"北京理工大学","members":"刘智杰；王嘉城, 边文晗"},{"username":"hzt_spidey_111","final_track1_score":55.46898337623719,"phase1_track1_score":42.441451072774385,"phase2_track1_score":68.4965156797,"final_track1_macro_f1":59.24139955668156,"phase1_track1_macro_f1":48.022833886163106,"phase2_track1_macro_f1":70.4599652272,"final_track1_pem":51.69656719584283,"phase1_track1_pem":36.86006825938566,"phase2_track1_pem":66.5330661323,"phase1_track1_submission_pk":798688,"phase2_track1_submission_pk":802834,"phase1_timestamp":"2026-06-15_24-42","phase2_timestamp":"2026-06-18_56-26","rank":4,"system_name":"ZZUNLP_Han","organization":"郑州大学","members":"华中天; 罗毅"},{"username":"krissssssssssss","final_track1_score":46.161039687415936,"phase1_track1_score":31.932316466131873,"phase2_track1_score":60.3897629087,"final_track1_macro_f1":53.021977464564294,"phase1_track1_macro_f1":39.97384794932859,"phase2_track1_macro_f1":66.0701069798,"final_track1_pem":39.30010191031758,"phase1_track1_pem":23.890784982935152,"phase2_track1_pem":54.7094188377,"phase1_track1_submission_pk":-1,"phase2_track1_submission_pk":804892,"phase1_timestamp":"offline","phase2_timestamp":"2026-06-20_52-18","rank":5,"system_name":"YNU-HPCC","organization":"云南大学","members":"Bocheng Yang; Jin Wang"},{"username":"wangzhenchao","final_track1_score":23.59073199446739,"phase1_track1_score":47.18146398893478,"phase2_track1_score":0,"final_track1_macro_f1":25.679757504293143,"phase1_track1_macro_f1":51.359515008586285,"phase2_track1_macro_f1":0,"final_track1_pem":21.501706484641637,"phase1_track1_pem":43.003412969283275,"phase2_track1_pem":0,"phase1_track1_submission_pk":799031,"phase2_track1_submission_pk":"","phase1_timestamp":"2026-06-15_57-06","phase2_timestamp":"","rank":6,"system_name":"HER-DAC","organization":"深圳理工大学","members":"王振超；倪仕文，陈鑫，杨敏"},{"username":"tony_he","final_track1_score":18.773050303187677,"phase1_track1_score":37.546100606375354,"phase2_track1_score":0,"final_track1_macro_f1":20.139957261665458,"phase1_track1_macro_f1":40.279914523330916,"phase2_track1_macro_f1":0,"final_track1_pem":17.4061433447099,"phase1_track1_pem":34.8122866894198,"phase2_track1_pem":0,"phase1_track1_submission_pk":775822,"phase2_track1_submission_pk":"","phase1_timestamp":"2026-06-02_58-44","phase2_timestamp":"","rank":7,"system_name":"Midea_nlp","organization":"美的AI","members":"何攀"},{"username":"li060123","final_track1_score":18.044097965781503,"phase1_track1_score":17.329598137663005,"phase2_track1_score":18.7585977939,"final_track1_macro_f1":18.21832649992717,"phase1_track1_macro_f1":18.959537572254337,"phase2_track1_macro_f1":17.4771154276,"final_track1_pem":17.869869431685835,"phase1_track1_pem":15.699658703071673,"phase2_track1_pem":20.0400801603,"phase1_track1_submission_pk":-2,"phase2_track1_submission_pk":805457,"phase1_timestamp":"offline","phase2_timestamp":"2026-06-20_58-31","rank":8,"system_name":"木子辰","organization":"北京林业大学","members":"李恩晨"},{"username":"jijifangongdui","final_track1_score":8.664799068831503,"phase1_track1_score":17.329598137663005,"phase2_track1_score":0,"final_track1_macro_f1":9.479768786127169,"phase1_track1_macro_f1":18.959537572254337,"phase2_track1_macro_f1":0,"final_track1_pem":7.849829351535837,"phase1_track1_pem":15.699658703071673,"phase2_track1_pem":0,"phase1_track1_submission_pk":778022,"phase2_track1_submission_pk":"","phase1_timestamp":"2026-06-03_36-43","phase2_timestamp":"","rank":9,"system_name":"积极返工队","organization":"中山大学","members":"吴承彦；刘晨晖"},{"username":"emptyboat","final_track1_score":5.613348276631084,"phase1_track1_score":11.226696553262167,"phase2_track1_score":0,"final_track1_macro_f1":10.202805768279234,"phase1_track1_macro_f1":20.405611536558467,"phase2_track1_macro_f1":0,"final_track1_pem":1.023890784982935,"phase1_track1_pem":2.04778156996587,"phase2_track1_pem":0,"phase1_track1_submission_pk":789727,"phase2_track1_submission_pk":"","phase1_timestamp":"2026-06-10_26-31","phase2_timestamp":"","rank":10,"system_name":"EmptyBoat","organization":"郑州大学","members":"张帅威"},{"username":"quincyqiang","final_track1_score":5.521402454704333,"phase1_track1_score":11.042804909408666,"phase2_track1_score":0,"final_track1_macro_f1":8.995023339442795,"phase1_track1_macro_f1":17.99004667888559,"phase2_track1_macro_f1":0,"final_track1_pem":2.04778156996587,"phase1_track1_pem":4.09556313993174,"phase2_track1_pem":0,"phase1_track1_submission_pk":785843,"phase2_track1_submission_pk":"","phase1_timestamp":"2026-06-08_03-56","phase2_timestamp":"","rank":11,"system_name":"ICT-XIR","organization":"中国科学院计算技术研究所","members":"闫强；陈娟, 郭嘉丰"}],"track2":[{"username":"xjdx_001","final_track2_score":86.27344386895248,"phase1_track2_score":86.21253442180495,"phase2_track2_score":86.3343533161,"final_track2_macro_f1":91.17648269021007,"phase1_track2_macro_f1":90.46135486282012,"phase2_track2_macro_f1":91.8916105176,"final_track2_joint_at_3":81.37040504764488,"phase1_track2_joint_at_3":81.96371398078975,"phase2_track2_joint_at_3":80.7770961145,"phase1_track2_submission_pk":798978,"phase2_track2_submission_pk":799385,"phase1_timestamp":"2026-06-15_22-48","phase2_timestamp":"2026-06-16_07-37","rank":1,"system_name":"XJDX_001","organization":"新疆大学","members":"左梓呈；赵文彪, 史龙堃"},{"username":"lynn27149","final_track2_score":82.98977009011936,"phase1_track2_score":81.27525251853874,"phase2_track2_score":84.7042876617,"final_track2_macro_f1":89.54908401881846,"phase1_track2_macro_f1":86.9902062110369,"phase2_track2_macro_f1":92.1079618266,"final_track2_joint_at_3":76.43045616147027,"phase1_track2_joint_at_3":75.56029882604055,"phase2_track2_joint_at_3":77.3006134969,"phase1_track2_submission_pk":798234,"phase2_track2_submission_pk":800999,"phase1_timestamp":"2026-06-15_15-52","phase2_timestamp":"2026-06-17_23-01","rank":2,"system_name":"Lenormand System","organization":"香港理工大学","members":"LI Zirui；LI Yanling"},{"username":"wangzhenchao","final_track2_score":81.60688717578876,"phase1_track2_score":81.6983825834775,"phase2_track2_score":81.5153917681,"final_track2_macro_f1":93.05218305703822,"phase1_track2_macro_f1":91.78523901967644,"phase2_track2_macro_f1":94.3191270944,"final_track2_joint_at_3":70.16159129448928,"phase1_track2_joint_at_3":71.61152614727855,"phase2_track2_joint_at_3":68.7116564417,"phase1_track2_submission_pk":799031,"phase2_track2_submission_pk":801219,"phase1_timestamp":"2026-06-15_57-06","phase2_timestamp":"2026-06-17_08-17","rank":3,"system_name":"HER-DAC","organization":"深圳理工大学","members":"王振超；倪仕文，陈鑫，杨敏"},{"username":"hzt_spidey_111","final_track2_score":81.38060445271441,"phase1_track2_score":80.88462517282883,"phase2_track2_score":81.8765837326,"final_track2_macro_f1":94.25383319253311,"phase1_track2_macro_f1":93.46615536166621,"phase2_track2_macro_f1":95.0415110234,"final_track2_joint_at_3":68.50737571284573,"phase1_track2_joint_at_3":68.30309498399146,"phase2_track2_joint_at_3":68.7116564417,"phase1_track2_submission_pk":798142,"phase2_track2_submission_pk":802834,"phase1_timestamp":"2026-06-15_17-01","phase2_timestamp":"2026-06-18_56-26","rank":4,"system_name":"ZZUNLP_Han","organization":"郑州大学","members":"华中天; 罗毅"},{"username":"chuhaicai","final_track2_score":79.00817698920063,"phase1_track2_score":80.88162048700127,"phase2_track2_score":77.1347334914,"final_track2_macro_f1":91.01587601388063,"phase1_track2_macro_f1":92.17946295906125,"phase2_track2_macro_f1":89.8522890687,"final_track2_joint_at_3":67.00047796452066,"phase1_track2_joint_at_3":69.5837780149413,"phase2_track2_joint_at_3":64.4171779141,"phase1_track2_submission_pk":798931,"phase2_track2_submission_pk":805779,"phase1_timestamp":"2026-06-15_51-58","phase2_timestamp":"2026-06-20_58-37","rank":5,"system_name":"SUAT-NLP","organization":"深圳理工大学","members":"蔡楚海；蒋峰, 陈鑫, 杨敏"},{"username":"bit-trustai","final_track2_score":77.54992327337345,"phase1_track2_score":76.88176217904689,"phase2_track2_score":78.2180843677,"final_track2_macro_f1":89.713644662451,"phase1_track2_macro_f1":88.021795436002,"phase2_track2_macro_f1":91.4054938889,"final_track2_joint_at_3":65.3862018843459,"phase1_track2_joint_at_3":65.74172892209178,"phase2_track2_joint_at_3":65.0306748466,"phase1_track2_submission_pk":799038,"phase2_track2_submission_pk":804671,"phase1_timestamp":"2026-06-15_58-42","phase2_timestamp":"2026-06-20_24-41","rank":6,"system_name":"BIT-TrustAI","organization":"北京理工大学","members":"刘智杰；王嘉城, 边文晗"},{"username":"emptyboat","final_track2_score":77.49776616997767,"phase1_track2_score":78.72609594855531,"phase2_track2_score":76.2694363914,"final_track2_macro_f1":89.1022297360783,"phase1_track2_macro_f1":89.4692676708566,"phase2_track2_macro_f1":88.7351918013,"final_track2_joint_at_3":65.893302603927,"phase1_track2_joint_at_3":67.982924226254,"phase2_track2_joint_at_3":63.8036809816,"phase1_track2_submission_pk":798596,"phase2_track2_submission_pk":804961,"phase1_timestamp":"2026-06-15_58-32","phase2_timestamp":"2026-06-20_52-50","rank":7,"system_name":"EmptyBoat","organization":"郑州大学","members":"张帅威"},{"username":"snuc_van","final_track2_score":77.17912178387024,"phase1_track2_score":76.68645742344049,"phase2_track2_score":77.6717861443,"final_track2_macro_f1":88.60745732707588,"phase1_track2_macro_f1":87.31101516705174,"phase2_track2_macro_f1":89.9038994871,"final_track2_joint_at_3":65.75078624071462,"phase1_track2_joint_at_3":66.06189967982924,"phase2_track2_joint_at_3":65.4396728016,"phase1_track2_submission_pk":798414,"phase2_track2_submission_pk":803783,"phase1_timestamp":"2026-06-15_26-04","phase2_timestamp":"2026-06-19_35-02","rank":8,"system_name":"Talk is cheap, show me the code","organization":"华南师范大学","members":"温雅杰"},{"username":"li060123","final_track2_score":76.74996637539742,"phase1_track2_score":76.89406958729484,"phase2_track2_score":76.6058631635,"final_track2_macro_f1":84.51197352834932,"phase1_track2_macro_f1":82.06988944139863,"phase2_track2_macro_f1":86.9540576153,"final_track2_joint_at_3":68.98795922244551,"phase1_track2_joint_at_3":71.71824973319103,"phase2_track2_joint_at_3":66.2576687117,"phase1_track2_submission_pk":-2,"phase2_track2_submission_pk":805457,"phase1_timestamp":"offline","phase2_timestamp":"2026-06-20_58-31","rank":9,"system_name":"木子辰","organization":"北京林业大学","members":"李恩晨"},{"username":"telechat","final_track2_score":73.94617848548425,"phase1_track2_score":72.29876143586851,"phase2_track2_score":75.5935955351,"final_track2_macro_f1":89.16677626589089,"phase1_track2_macro_f1":86.86006289308176,"phase2_track2_macro_f1":91.4734896387,"final_track2_joint_at_3":58.72558070507764,"phase1_track2_joint_at_3":57.73745997865528,"phase2_track2_joint_at_3":59.7137014315,"phase1_track2_submission_pk":792963,"phase2_track2_submission_pk":801136,"phase1_timestamp":"2026-06-12_51-42","phase2_timestamp":"2026-06-17_52-05","rank":10,"system_name":"Telechat小分队","organization":"中国电信股份有限公司人工智能研究院","members":"冯泽林；顾铭扬"},{"username":"krissssssssssss","final_track2_score":58.180896623133336,"phase1_track2_score":59.67405678936668,"phase2_track2_score":56.6877364569,"final_track2_macro_f1":58.38262289663925,"phase1_track2_macro_f1":58.1954988508785,"phase2_track2_macro_f1":58.5697469424,"final_track2_joint_at_3":57.97917034962743,"phase1_track2_joint_at_3":61.15261472785486,"phase2_track2_joint_at_3":54.8057259714,"phase1_track2_submission_pk":-1,"phase2_track2_submission_pk":805546,"phase1_timestamp":"offline","phase2_timestamp":"2026-06-20_52-16","rank":11,"system_name":"YNU-HPCC","organization":"云南大学","members":"Bocheng Yang; Jin Wang"},{"username":"stanit","final_track2_score":57.71665205964884,"phase1_track2_score":68.77424838589766,"phase2_track2_score":46.6590557334,"final_track2_macro_f1":79.50073858468865,"phase1_track2_macro_f1":81.8387849254773,"phase2_track2_macro_f1":77.1626922439,"final_track2_joint_at_3":35.93256553460901,"phase1_track2_joint_at_3":55.70971184631803,"phase2_track2_joint_at_3":16.1554192229,"phase1_track2_submission_pk":793534,"phase2_track2_submission_pk":801597,"phase1_timestamp":"2026-06-12_07-56","phase2_timestamp":"2026-06-17_04-07","rank":12,"system_name":"ReFact","organization":"中国科学院信息工程研究所","members":"Jinyang Sun"},{"username":"seb11111","final_track2_score":39.688211461558176,"phase1_track2_score":79.37642292311635,"phase2_track2_score":0,"final_track2_macro_f1":42.39670040443973,"phase1_track2_macro_f1":84.79340080887945,"phase2_track2_macro_f1":0,"final_track2_joint_at_3":36.979722518676624,"phase1_track2_joint_at_3":73.95944503735325,"phase2_track2_joint_at_3":0,"phase1_track2_submission_pk":798174,"phase2_track2_submission_pk":"","phase1_timestamp":"2026-06-15_40-45","phase2_timestamp":"","rank":13,"system_name":"","organization":"","members":""},{"username":"jijifangongdui","final_track2_score":35.61397405870203,"phase1_track2_score":71.22794811740405,"phase2_track2_score":0,"final_track2_macro_f1":40.06466103095795,"phase1_track2_macro_f1":80.1293220619159,"phase2_track2_macro_f1":0,"final_track2_joint_at_3":31.163287086446108,"phase1_track2_joint_at_3":62.326574172892215,"phase2_track2_joint_at_3":0,"phase1_track2_submission_pk":792819,"phase2_track2_submission_pk":"","phase1_timestamp":"2026-06-12_03-49","phase2_timestamp":"","rank":14,"system_name":"积极返工队","organization":"中山大学","members":"吴承彦；刘晨晖"},{"username":"quincyqiang","final_track2_score":13.530866877434928,"phase1_track2_score":27.061733754869856,"phase2_track2_score":0,"final_track2_macro_f1":18.09695253822097,"phase1_track2_macro_f1":36.19390507644194,"phase2_track2_macro_f1":0,"final_track2_joint_at_3":8.964781216648879,"phase1_track2_joint_at_3":17.929562433297757,"phase2_track2_joint_at_3":0,"phase1_track2_submission_pk":785843,"phase2_track2_submission_pk":"","phase1_timestamp":"2026-06-08_03-56","phase2_timestamp":"","rank":15,"system_name":"ICT-XIR","organization":"中国科学院计算技术研究所","members":"闫强；陈娟, 郭嘉丰"}],"combined":[{"username":"xjdx_001","final_combined_score":77.53146640428304,"final_track1_score":68.78948893961359,"final_track2_score":86.27344386895248,"phase1_track1_score":50.61374050952718,"phase2_track1_score":86.9652373697,"phase1_track2_score":86.21253442180495,"phase2_track2_score":86.3343533161,"track1_phase1_submission_pk":798978,"track1_phase2_submission_pk":799385,"track2_phase1_submission_pk":798978,"track2_phase2_submission_pk":799385,"rank":1,"system_name":"XJDX_001","organization":"新疆大学","members":"左梓呈；赵文彪, 史龙堃"},{"username":"chuhaicai","final_combined_score":73.95193305242834,"final_track1_score":68.89568911565605,"final_track2_score":79.00817698920063,"phase1_track1_score":51.84572912981211,"phase2_track1_score":85.9456491015,"phase1_track2_score":80.88162048700127,"phase2_track2_score":77.1347334914,"track1_phase1_submission_pk":798937,"track1_phase2_submission_pk":805644,"track2_phase1_submission_pk":798931,"track2_phase2_submission_pk":805779,"rank":2,"system_name":"SUAT-NLP","organization":"深圳理工大学","members":"蔡楚海；蒋峰, 陈鑫, 杨敏"},{"username":"hzt_spidey_111","final_combined_score":68.4247939144758,"final_track1_score":55.46898337623719,"final_track2_score":81.38060445271441,"phase1_track1_score":42.441451072774385,"phase2_track1_score":68.4965156797,"phase1_track2_score":80.88462517282883,"phase2_track2_score":81.8765837326,"track1_phase1_submission_pk":798688,"track1_phase2_submission_pk":802834,"track2_phase1_submission_pk":798142,"track2_phase2_submission_pk":802834,"rank":3,"system_name":"ZZUNLP_Han","organization":"郑州大学","members":"华中天; 罗毅"},{"username":"bit-trustai","final_combined_score":67.76898472591716,"final_track1_score":57.98804617846086,"final_track2_score":77.54992327337345,"phase1_track1_score":44.094703631621734,"phase2_track1_score":71.8813887253,"phase1_track2_score":76.88176217904689,"phase2_track2_score":78.2180843677,"track1_phase1_submission_pk":799038,"track1_phase2_submission_pk":804671,"track2_phase1_submission_pk":799038,"track2_phase2_submission_pk":804671,"rank":4,"system_name":"BIT-TrustAI","organization":"北京理工大学","members":"刘智杰；王嘉城, 边文晗"},{"username":"wangzhenchao","final_combined_score":52.59880958512807,"final_track1_score":23.59073199446739,"final_track2_score":81.60688717578876,"phase1_track1_score":47.18146398893478,"phase2_track1_score":0,"phase1_track2_score":81.6983825834775,"phase2_track2_score":81.5153917681,"track1_phase1_submission_pk":799031,"track1_phase2_submission_pk":"","track2_phase1_submission_pk":799031,"track2_phase2_submission_pk":801219,"rank":5,"system_name":"HER-DAC","organization":"深圳理工大学","members":"王振超；倪仕文，陈鑫，杨敏"},{"username":"krissssssssssss","final_combined_score":52.170968155274636,"final_track1_score":46.161039687415936,"final_track2_score":58.180896623133336,"phase1_track1_score":31.932316466131873,"phase2_track1_score":60.3897629087,"phase1_track2_score":59.67405678936668,"phase2_track2_score":56.6877364569,"track1_phase1_submission_pk":-1,"track1_phase2_submission_pk":804892,"track2_phase1_submission_pk":-1,"track2_phase2_submission_pk":805546,"rank":6,"system_name":"YNU-HPCC","organization":"云南大学","members":"Bocheng Yang; Jin Wang"},{"username":"li060123","final_combined_score":47.39703217058946,"final_track1_score":18.044097965781503,"final_track2_score":76.74996637539742,"phase1_track1_score":17.329598137663005,"phase2_track1_score":18.7585977939,"phase1_track2_score":76.89406958729484,"phase2_track2_score":76.6058631635,"track1_phase1_submission_pk":-2,"track1_phase2_submission_pk":805457,"track2_phase1_submission_pk":-2,"track2_phase2_submission_pk":805457,"rank":7,"system_name":"木子辰","organization":"北京林业大学","members":"李恩晨"},{"username":"emptyboat","final_combined_score":41.555557223304376,"final_track1_score":5.613348276631084,"final_track2_score":77.49776616997767,"phase1_track1_score":11.226696553262167,"phase2_track1_score":0,"phase1_track2_score":78.72609594855531,"phase2_track2_score":76.2694363914,"track1_phase1_submission_pk":789727,"track1_phase2_submission_pk":"","track2_phase1_submission_pk":798596,"track2_phase2_submission_pk":804961,"rank":8,"system_name":"EmptyBoat","organization":"郑州大学","members":"张帅威"},{"username":"jijifangongdui","final_combined_score":22.139386563766763,"final_track1_score":8.664799068831503,"final_track2_score":35.61397405870203,"phase1_track1_score":17.329598137663005,"phase2_track1_score":0,"phase1_track2_score":71.22794811740405,"phase2_track2_score":0,"track1_phase1_submission_pk":778022,"track1_phase2_submission_pk":"","track2_phase1_submission_pk":792819,"track2_phase2_submission_pk":"","rank":9,"system_name":"积极返工队","organization":"中山大学","members":"吴承彦；刘晨晖"},{"username":"quincyqiang","final_combined_score":9.52613466606963,"final_track1_score":5.521402454704333,"final_track2_score":13.530866877434928,"phase1_track1_score":11.042804909408666,"phase2_track1_score":0,"phase1_track2_score":27.061733754869856,"phase2_track2_score":0,"track1_phase1_submission_pk":785843,"track1_phase2_submission_pk":"","track2_phase1_submission_pk":785843,"track2_phase2_submission_pk":"","rank":10,"system_name":"ICT-XIR","organization":"中国科学院计算技术研究所","members":"闫强；陈娟, 郭嘉丰"}]}};
 
     const configs = {
       track1: {
         label: "Track 1",
-        scoreKey: "track1_score",
+        scoreKey: "final_track1_score",
         columns: [
           { key: "rank", label: "Rank", numeric: true },
           { key: "username", label: "Submission User" },
-          { key: "track1_score", label: "Score", numeric: true, score: true },
-          { key: "track1_macro_f1", label: "Macro-F1", numeric: true, score: true },
-          { key: "track1_pem", label: "PEM", numeric: true, score: true }
+          { key: "system_name", label: "System" },
+          { key: "organization", label: "Organization" },
+          { key: "members", label: "Leader + Members" },
+          { key: "final_track1_score", label: "Final", numeric: true, score: true },
+          { key: "phase1_track1_score", label: "Phase 1", numeric: true, score: true },
+          { key: "phase2_track1_score", label: "Phase 2", numeric: true, score: true }
         ],
         details: [
-          ["Score", "track1_score", true],
-          ["Macro-F1", "track1_macro_f1", true],
-          ["PEM", "track1_pem", true],
-          ["Submission PK", "submission_pk", false],
-          ["Export timestamp", "filename_timestamp", false]
+          ["Final Macro-F1", "final_track1_macro_f1", true],
+          ["P1 Macro-F1", "phase1_track1_macro_f1", true],
+          ["P2 Macro-F1", "phase2_track1_macro_f1", true],
+          ["Final PEM", "final_track1_pem", true],
+          ["P1 PEM", "phase1_track1_pem", true],
+          ["P2 PEM", "phase2_track1_pem", true],
+          ["Phase 1 #ID", "phase1_track1_submission_pk"],
+          ["Phase 2 #ID", "phase2_track1_submission_pk"],
+          ["P1 timestamp", "phase1_timestamp", false, true],
+          ["P2 timestamp", "phase2_timestamp", false, true]
         ]
       },
       track2: {
         label: "Track 2",
-        scoreKey: "track2_score",
+        scoreKey: "final_track2_score",
         columns: [
           { key: "rank", label: "Rank", numeric: true },
           { key: "username", label: "Submission User" },
-          { key: "track2_score", label: "Score", numeric: true, score: true },
-          { key: "track2_macro_f1", label: "Macro-F1", numeric: true, score: true },
-          { key: "track2_joint_at_3", label: "Joint@3", numeric: true, score: true }
+          { key: "system_name", label: "System" },
+          { key: "organization", label: "Organization" },
+          { key: "members", label: "Leader + Members" },
+          { key: "final_track2_score", label: "Final", numeric: true, score: true },
+          { key: "phase1_track2_score", label: "Phase 1", numeric: true, score: true },
+          { key: "phase2_track2_score", label: "Phase 2", numeric: true, score: true }
         ],
         details: [
-          ["Score", "track2_score", true],
-          ["Macro-F1", "track2_macro_f1", true],
-          ["Joint@3", "track2_joint_at_3", true],
-          ["Submission PK", "submission_pk", false],
-          ["Export timestamp", "filename_timestamp", false]
+          ["Final Macro-F1", "final_track2_macro_f1", true],
+          ["P1 Macro-F1", "phase1_track2_macro_f1", true],
+          ["P2 Macro-F1", "phase2_track2_macro_f1", true],
+          ["Final Joint@3", "final_track2_joint_at_3", true],
+          ["P1 Joint@3", "phase1_track2_joint_at_3", true],
+          ["P2 Joint@3", "phase2_track2_joint_at_3", true],
+          ["Phase 1 #ID", "phase1_track2_submission_pk"],
+          ["Phase 2 #ID", "phase2_track2_submission_pk"],
+          ["P1 timestamp", "phase1_timestamp", false, true],
+          ["P2 timestamp", "phase2_timestamp", false, true]
         ]
       },
       combined: {
-        label: "Combined",
-        scoreKey: "combined_score",
+        label: "Track 1 + 2",
+        scoreKey: "final_combined_score",
         columns: [
           { key: "rank", label: "Rank", numeric: true },
           { key: "username", label: "Submission User" },
-          { key: "combined_score", label: "Average", numeric: true, score: true },
-          { key: "track1_score", label: "Track 1", numeric: true, score: true },
-          { key: "track2_score", label: "Track 2", numeric: true, score: true }
+          { key: "system_name", label: "System" },
+          { key: "organization", label: "Organization" },
+          { key: "members", label: "Leader + Members" },
+          { key: "final_combined_score", label: "Final", numeric: true, score: true },
+          { key: "final_track1_score", label: "Track 1", numeric: true, score: true },
+          { key: "final_track2_score", label: "Track 2", numeric: true, score: true }
         ],
         details: [
-          ["Average score", "combined_score", true],
-          ["Track 1 score", "track1_score", true],
-          ["Track 1 submission PK", "track1_submission_pk", false],
-          ["Track 2 score", "track2_score", true],
-          ["Track 2 submission PK", "track2_submission_pk", false]
+          ["P1 T1", "phase1_track1_score", true],
+          ["P1 T2", "phase1_track2_score", true],
+          ["P2 T1", "phase2_track1_score", true],
+          ["P2 T2", "phase2_track2_score", true],
+          ["Track 1 Phase 1 #ID", "track1_phase1_submission_pk"],
+          ["Track 1 Phase 2 #ID", "track1_phase2_submission_pk"],
+          ["Track 2 Phase 1 #ID", "track2_phase1_submission_pk"],
+          ["Track 2 Phase 2 #ID", "track2_phase2_submission_pk"]
         ]
       }
     };
@@ -561,7 +591,7 @@
       payload: null,
       track: "track1",
       query: "",
-      sortKey: "track1_score",
+      sortKey: "final_track1_score",
       sortDirection: "desc",
       expandedKey: null
     };
@@ -574,7 +604,8 @@
     const resultNoteNode = document.querySelector("#result-note");
 
     function formatScore(value) {
-      return Number(value).toFixed(4);
+      const number = Number(value);
+      return Number.isFinite(number) ? number.toFixed(4) : "-";
     }
 
     function appendText(parent, tag, text, className) {
@@ -609,28 +640,20 @@
         cell.appendChild(button);
         row.appendChild(cell);
       }
-      const expandHeader = document.createElement("th");
-      expandHeader.textContent = "Details";
-      row.appendChild(expandHeader);
+      if (config.details.length) {
+        const expandHeader = document.createElement("th");
+        expandHeader.textContent = "Details";
+        row.appendChild(expandHeader);
+      }
       headNode.appendChild(row);
     }
 
     function detailEntries(row, config) {
-      const entries = config.details.map(([label, key, score, wide]) => ({
+      return config.details.map(([label, key, score, wide]) => ({
         label,
-        value: score ? formatScore(row[key]) : row[key],
+        value: score ? formatScore(row[key]) : (row[key] || "-"),
         wide: Boolean(wide)
       }));
-      if (state.track === "combined") {
-        entries.push({
-          label: "Best-score source",
-          value: row.track1_submission_pk === row.track2_submission_pk
-            ? "Same submission"
-            : "Different submissions",
-          wide: true
-        });
-      }
-      return entries;
     }
 
     function renderDetailRow(row, config, columnCount) {
@@ -671,8 +694,11 @@
     function visibleRows() {
       const rows = state.payload.rankings[state.track] || [];
       const query = state.query.trim().toLocaleLowerCase();
+      const searchKeys = ["username", "system_name", "organization", "members"];
       return rows
-        .filter((row) => !query || String(row.username).toLocaleLowerCase().includes(query))
+        .filter((row) => !query || searchKeys.some((key) =>
+          String(row[key] || "").toLocaleLowerCase().includes(query)
+        ))
         .slice()
         .sort(compareRows);
     }
@@ -684,7 +710,7 @@
         const emptyRow = document.createElement("tr");
         emptyRow.className = "empty-row";
         const cell = document.createElement("td");
-        cell.colSpan = config.columns.length + 1;
+        cell.colSpan = config.columns.length + (config.details.length ? 1 : 0);
         cell.textContent = state.query ? "No matching teams." : "No ranking data.";
         emptyRow.appendChild(cell);
         bodyNode.appendChild(emptyRow);
@@ -694,10 +720,12 @@
         const rowKey = `${state.track}:${row.username}`;
         const expanded = state.expandedKey === rowKey;
         const dataRow = document.createElement("tr");
-        dataRow.className = `data-row rank-${row.rank}`;
+        dataRow.className = `data-row ${config.details.length ? "" : "no-details"} rank-${row.rank}`;
         dataRow.dataset.rowKey = rowKey;
-        dataRow.tabIndex = 0;
-        dataRow.setAttribute("aria-expanded", String(expanded));
+        if (config.details.length) {
+          dataRow.tabIndex = 0;
+          dataRow.setAttribute("aria-expanded", String(expanded));
+        }
 
         for (const column of config.columns) {
           const cell = document.createElement("td");
@@ -709,24 +737,26 @@
             appendText(
               cell,
               "span",
-              value,
-              column.key === "username" ? "team" : ""
+              value || "-",
+              column.key === "username" ? "team" : "meta"
             );
           }
           dataRow.appendChild(cell);
         }
 
-        const actionCell = document.createElement("td");
-        const expandButton = appendText(actionCell, "button", "›", "expand-button");
-        expandButton.type = "button";
-        expandButton.title = expanded ? "Hide details" : "Show details";
-        expandButton.setAttribute(
-          "aria-label",
-          `${expanded ? "Hide" : "Show"} details for ${row.username}`
-        );
-        dataRow.appendChild(actionCell);
+        if (config.details.length) {
+          const actionCell = document.createElement("td");
+          const expandButton = appendText(actionCell, "button", "›", "expand-button");
+          expandButton.type = "button";
+          expandButton.title = expanded ? "Hide details" : "Show details";
+          expandButton.setAttribute(
+            "aria-label",
+            `${expanded ? "Hide" : "Show"} details for ${row.username}`
+          );
+          dataRow.appendChild(actionCell);
+        }
         bodyNode.appendChild(dataRow);
-        if (expanded) {
+        if (expanded && config.details.length) {
           bodyNode.appendChild(renderDetailRow(row, config, config.columns.length));
         }
       }
@@ -754,6 +784,7 @@
     }
 
     function toggleDetails(rowKey) {
+      if (!configs[state.track].details.length) return;
       state.expandedKey = state.expandedKey === rowKey ? null : rowKey;
       render();
     }
