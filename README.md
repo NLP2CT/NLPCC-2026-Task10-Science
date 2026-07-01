@@ -37,6 +37,7 @@
 | Task Guidelines (EN / 中文) | [GUIDELINES.md](GUIDELINES.md) / [GUIDELINES_ZH.md](GUIDELINES_ZH.md) |
 | Released Data (Train-Dev + Phase 1 Test + Phase 2 Hidden Test) | [`data/`](data/) |
 | Submission Platform | [Codabench competition 16666](https://www.codabench.org/competitions/16666/) |
+| Final Leaderboard | [leaderboard.html](https://nlp2ct.github.io/NLPCC-2026-Task10-Science/leaderboard.html) / [leaderboard.md](leaderboard.md) |
 | Final Materials Confirmation | [Feishu form](https://ocn0wnz7cc7b.feishu.cn/share/base/form/shrcnY417S5AdxoYnZTx9g60590) |
 | Registration Status | Closed |
 | Registration Email | [nlp2ct.runzhe@gmail.com](mailto:nlp2ct.runzhe@gmail.com) |

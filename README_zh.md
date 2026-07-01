@@ -24,7 +24,7 @@
 
 ## 最新动态
 
-- **[2026/06/16]** 第一阶段结果临时发布版现已上线，详见 [Phase 1 排行榜](https://nlp2ct.github.io/NLPCC-2026-Task10-Science/leaderboard.html)（[Markdown 版](leaderboard.md)）。当前结果并非最终确认版，待与各参赛队伍完成最终确认后将进一步更新。
+- **[2026/06/30]** 最终排行榜现已上线，详见 [最终排行榜](https://nlp2ct.github.io/NLPCC-2026-Task10-Science/leaderboard.html)（[Markdown 版](leaderboard.md)）。
 - **[2026/06/11]** 第二阶段隐藏测试输入（不含标签）已在 [`data/`](data/) 发布，覆盖两个赛道。Phase 1 平台侧公开提交截止至 6 月 16 日（UTC+8），Phase 2 将于 6 月 17--20 日（UTC+8）在 Codabench 平台收集提交文件。
 - **[2026/05/26]** 第一阶段评测正式开启。第一阶段测试输入（[`data/`](data/)）、baseline prompting 套件（[`baseline_prompting/`](baseline_prompting/)）与离线评测脚本（[`offline_eval/`](offline_eval/)）已发布。请在 [Codabench](https://www.codabench.org/competitions/16666/) 提交第一阶段结果。
 - **[2026/04/15]** 发布任务指南及两个赛道的训练开发数据。
@@ -37,6 +37,7 @@
 | 任务指南（中文 / EN） | [GUIDELINES_ZH.md](GUIDELINES_ZH.md) / [GUIDELINES.md](GUIDELINES.md) |
 | 已发布数据（训练开发 + 第一阶段测试 + 第二阶段测试） | [`data/`](data/) |
 | 提交平台 | [Codabench competition 16666](https://www.codabench.org/competitions/16666/) |
+| 最终排行榜 | [leaderboard.html](https://nlp2ct.github.io/NLPCC-2026-Task10-Science/leaderboard.html) / [leaderboard.md](leaderboard.md) |
 | 最终材料确认 | [飞书表格](https://ocn0wnz7cc7b.feishu.cn/share/base/form/shrcnY417S5AdxoYnZTx9g60590) |
 | 报名状态 | 已截止 |
 | 报名邮箱 | [nlp2ct.runzhe@gmail.com](mailto:nlp2ct.runzhe@gmail.com) |
